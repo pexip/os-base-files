@@ -136,6 +136,9 @@ if [ "$1" = "configure" ] && [ "$2" != "" ]; then
         cp /usr/share/base-files/profile /etc/profile
     fi
   fi
+
+  # There is no help text in PexOS
+  rm -f /etc/update-motd.d/10-help-text
 fi
 
 # Dell Latitude 2110 factory pre-installed images carried a leftover apt

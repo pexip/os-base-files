@@ -11,11 +11,9 @@ ifeq ($(DEB_HOST_GNU_SYSTEM),gnu)
   OSNAME=GNU/Hurd
 endif
 
-VENDORFILE = ubuntu
+VENDORFILE = debian
 
 VERSION = $(shell cat etc/debian_version)
-
-DEBVERSION := $(shell dpkg-parsechangelog | grep ^Version: | cut -d' ' -f2)
 
 build:
 	touch build
@@ -23,11 +21,7 @@ build:
 clean:
 	rm -f build
 	rm -f `find . -name "*~"`
-	rm -rf debian/tmp debian/lsb-release-udeb debian/files* core debian/substvars
-
-	# update md5sums list for profile
-	LIST="`md5sum share/profile | cut -f 1 -d\  | cat share/profile.md5sums - | sort -u`"; \
-	echo "$$LIST" > share/profile.md5sums
+	rm -rf debian/tmp debian/files* core debian/substvars
 
 binary-arch: build
 	rm -rf debian/tmp
@@ -39,24 +33,27 @@ binary-arch: build
 	cat debian/copyright.in | sed -e "s&#OSNAME#&$(OSNAME)&g" \
 		> $(docdir)/copyright
 	chmod 644 $(docdir)/copyright
+	sh debian/check-md5sum-etc profile
+	sh debian/check-md5sum-etc nsswitch.conf
 	sed -e "s/#VENDORFILE#/$(VENDORFILE)/g" debian/postinst.in \
 		> debian/tmp/DEBIAN/postinst
 	chmod 755 debian/tmp/DEBIAN/postinst
-	install -p -m 755 debian/preinst debian/tmp/DEBIAN/preinst
 	cd debian && install -m 644 conffiles tmp/DEBIAN
 	cd debian/tmp && install -d `cat ../directory-list`
 	install -p -m 644 share/* debian/tmp/usr/share/base-files
 	install -p -m 644 licenses/* debian/tmp/usr/share/common-licenses
+	install -p -m 644 debian/lintian \
+		debian/tmp/usr/share/lintian/overrides/$(package)
 	ln -s GFDL-1.3 debian/tmp/usr/share/common-licenses/GFDL
 	ln -s LGPL-3 debian/tmp/usr/share/common-licenses/LGPL
 	ln -s GPL-3 debian/tmp/usr/share/common-licenses/GPL
 	ln -s README $(docdir)/FAQ
 	install -p -m 644 etc/* debian/tmp/etc
-	install -p -m 755 debian/update-motd.d/* debian/tmp/etc/update-motd.d
-	rm -f debian/tmp/etc/motd
 ifeq ($(DEB_HOST_GNU_SYSTEM),gnu)
-	rmdir debian/tmp/proc
+	rmdir debian/tmp/sys
 endif
+	sed -e "s&#OSNAME#&$(OSNAME)&g" share/motd \
+		> debian/tmp/usr/share/base-files/motd
 	sed -e "s&#OSNAME#&$(OSNAME)&g" share/info.dir \
 		> debian/tmp/usr/share/base-files/info.dir
 	sed -e "s&#OSNAME#&$(OSNAME)&g" etc/issue \
@@ -65,6 +62,8 @@ endif
 		> debian/tmp/etc/issue.net
 	sed -e "s&#OSNAME#&$(OSNAME)&g" etc/os-release \
 		> debian/tmp/etc/os-release
+	mv debian/tmp/etc/os-release debian/tmp/usr/lib
+	ln -s ../usr/lib/os-release debian/tmp/etc/os-release
 	gzip -9 $(docdir)/changelog
 	cd debian/tmp && \
 		md5sum `find usr -type f` > DEBIAN/md5sums
@@ -74,24 +73,15 @@ endif
 	cd debian/tmp && chmod 1777 `cat ../1777-dirs`
 	cd debian/tmp && chmod 2775 `cat ../2775-dirs`
 	cd debian/tmp && chmod 700 root
-	cd debian/tmp && chmod 700 `cat ../700-dirs`
-	dpkg-gencontrol -pbase-files -isp
-	dpkg --build debian/tmp ..
+	dpkg-gencontrol -pbase-files
+	dpkg-deb --build -Zgzip debian/tmp ..
 
 binary-indep: build
-	rm -rf debian/lsb-release-udeb
-	install -d debian/lsb-release-udeb/DEBIAN debian/lsb-release-udeb/etc
-	install -p -m 644 etc/lsb-release debian/lsb-release-udeb/etc
-	chown -R root:root debian/lsb-release-udeb
-	cd debian/lsb-release-udeb && chmod 755 `find . -type d`
-	dpkg-gencontrol -plsb-release-udeb \
-		-Tdebian/lsb-release-udeb.substvars -Pdebian/lsb-release-udeb \
-		-isp -fdebian/files~
-	dpkg-distaddfile lsb-release-udeb_$(DEBVERSION)_all.udeb \
-		debian-installer extra
-	dpkg --build debian/lsb-release-udeb \
-		../lsb-release-udeb_$(DEBVERSION)_all.udeb
 
 binary: binary-indep binary-arch
+
+build-arch: build
+
+build-indep: build
 
 .PHONY: binary binary-arch binary-indep clean

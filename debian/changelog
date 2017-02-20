@@ -1,97 +1,281 @@
-base-files (6.5ubuntu6.6pexip1) pexip; urgency=low
+base-files (8+deb8u7pexip1) pexip; urgency=low
 
-  * Modify for Pexip
+  * Migrate to Jessie
 
- -- John-Mark Bell <jmb@pexip.com>  Tue, 12 Nov 2013 15:55:24 +0000
+ -- John-Mark Bell <jmb@pexip.com>  Mon, 20 Feb 2017 17:26:52 +0000
 
-base-files (6.5ubuntu6.6) precise; urgency=low
+base-files (8+deb8u7) stable; urgency=low
 
-  * /etc/issue, /etc/issue.net, /etc/lsb-release, /etc/os-release: Bump
-    version number to 12.04.3 in preparation for the point release.
+  * Changed /etc/debian_version to 8.7, for Debian 8.7 point release.
 
- -- Adam Conrad <adconrad@ubuntu.com>  Sat, 17 Aug 2013 15:47:23 -0600
+ -- Santiago Vila <sanvila@debian.org>  Wed, 28 Dec 2016 18:39:54 +0100
 
-base-files (6.5ubuntu6.5) precise; urgency=low
+base-files (8+deb8u6) stable; urgency=low
 
-  * /etc/issue, /etc/issue.net, /etc/lsb-release, /etc/os-release: Bump
-    version number to 12.04.2 in preparation for the point release.
+  * Changed /etc/debian_version to 8.6, for Debian 8.6 point release.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 25 Jan 2013 11:07:10 +0000
+ -- Santiago Vila <sanvila@debian.org>  Sun, 04 Sep 2016 12:52:06 +0200
 
-base-files (6.5ubuntu6.4) precise; urgency=low
+base-files (8+deb8u5) stable; urgency=low
 
-  * Mark /etc/os-release as a conffile, and migrate it in the preinst
-    for the benefit of people who tested the previous precise version
+  * Changed /etc/debian_version to 8.5, for Debian 8.5 point release.
 
- -- Adam Conrad <adconrad@ubuntu.com>  Tue, 23 Oct 2012 22:52:07 +0100
+ -- Santiago Vila <sanvila@debian.org>  Sun, 22 May 2016 12:48:52 +0200
 
-base-files (6.5ubuntu6.3) precise-proposed; urgency=low
+base-files (8+deb8u4) stable; urgency=low
 
-  * Install /etc/os-release. LP: #947236.
+  * Changed /etc/debian_version to 8.4, for Debian 8.4 point release.
 
- -- Matthias Klose <doko@ubuntu.com>  Tue, 09 Oct 2012 19:36:33 +0200
+ -- Santiago Vila <sanvila@debian.org>  Mon, 14 Mar 2016 00:45:24 +0100
 
-base-files (6.5ubuntu6.2) precise-proposed; urgency=low
+base-files (8+deb8u3) stable; urgency=low
 
-  * /etc/lsb-release, /etc/issue, /etc/issue.net: Bump version number to
-    12.04.1 in preparation for the point release. (LP: #1032278)
+  * Changed /etc/debian_version to 8.3, for Debian 8.3 point release.
+  * os-release: Drop trailing slash in SUPPORT_URL variable, as the URL
+    is not supposed to have it. Closes: #781809, #800791.
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Thu, 02 Aug 2012 12:19:07 -0400
+ -- Santiago Vila <sanvila@debian.org>  Wed, 06 Jan 2016 16:11:48 +0100
 
-base-files (6.5ubuntu6) precise; urgency=low
+base-files (8+deb8u2) stable; urgency=low
 
-  * /etc/issue, /etc/issue.net, /etc/lsb-release: Prepare for Precise
-    release.
+  * Changed /etc/debian_version to 8.2, for Debian 8.2 point release.
 
- -- Stéphane Graber <stgraber@ubuntu.com>  Thu, 19 Apr 2012 11:17:03 +0200
+ -- Santiago Vila <sanvila@debian.org>  Wed, 26 Aug 2015 18:30:02 +0200
 
-base-files (6.5ubuntu5) precise; urgency=low
+base-files (8+deb8u1) stable; urgency=low
 
-  * debian/preinst: also handle 99-footer.  Really closes LP: #903137.
+  * Changed /etc/debian_version to 8.1, for Debian 8.1 point release.
 
- -- Steve Langasek <steve.langasek@ubuntu.com>  Fri, 27 Jan 2012 10:50:52 -0800
+ -- Santiago Vila <sanvila@debian.org>  Mon, 04 May 2015 15:19:30 +0200
 
-base-files (6.5ubuntu4) precise; urgency=low
+base-files (8) unstable; urgency=low
 
-  * debian/preinst: the non-conffile contents of /etc/update-motd.d had
-    different md5sums in lucid, so include upgrade handling for those
-    versions as well so we avoid spurious conffile prompts.  LP: #903137.
+  * Release for jessie as stable:
+  - Use "8" as version in /etc/issue and /etc/issue.net. As usual, this
+    is never expected to change once that jessie is released as Debian 8.
+  - Use 8.0 as version in /etc/debian_version. As usual, this is expected
+    to change at every point release.
+  - Changed PRETTY_NAME in /usr/lib/os-release, adding 8 as version number
+    and "(jessie)" as codename. Added also VERSION_ID and VERSION.
+    This file, /usr/lib/os-release, is not expected to change either.
+  - Updated README (jessie -> stretch).
+  * Packages are not expected to rely on the contents of any of these
+    files, but if they do, they might better break now while we can still
+    fix them.
 
- -- Steve Langasek <steve.langasek@ubuntu.com>  Wed, 25 Jan 2012 15:47:04 -0800
+ -- Santiago Vila <sanvila@debian.org>  Sun, 30 Nov 2014 13:36:12 +0100
 
-base-files (6.5ubuntu3) precise; urgency=low
+base-files (7.10) unstable; urgency=low
 
-  * Fix permissions of /etc/dpkg/origins/* and
-    /usr/share/doc/base-files/copyright (LP: #871977).
+  * Dropped "chown root:root" lines in postinst, as they are
+    completely redundant. The postinst script is run by root.
+    This might also help as a workaround for Bug#766459.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 25 Nov 2011 09:41:15 +0000
+ -- Santiago Vila <sanvila@debian.org>  Mon, 27 Oct 2014 13:35:32 +0100
 
-base-files (6.5ubuntu2) precise; urgency=low
+base-files (7.9) unstable; urgency=low
 
-  * share/profile: Fix incorrect ordering of /etc/profile.d handling vs. PS1
-    check, bringing this more into line with Debian (LP: #881373).
+  * The change introduced in version 7.7 regarding /mnt seems to break
+    the ability of debootstrap currently in wheezy to create a sid chroot.
+    The case of initial install of /mnt is already handled by postinst line
+    "install_directory mnt 755 root" inside the big "if" block that
+    creates a bunch of other things, so we can restrict re-creating the /mnt
+    directory on upgrades to the case when we are really upgrading.
+    Therefore, the code is moved to the same "if" block where /etc/profile
+    and /etc/nsswitch.conf are upgraded to their new defaults when unchanged.
+    This might help as a workaround for Bug#766459.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 25 Oct 2011 14:28:47 +0100
+ -- Santiago Vila <sanvila@debian.org>  Mon, 27 Oct 2014 12:33:22 +0100
 
-base-files (6.5ubuntu1) precise; urgency=low
+base-files (7.8) unstable; urgency=low
 
-  * Resynchronise with Debian.  Remaining changes:
-    - Branding changes.
-    - Add /etc/lsb-release file.
-    - Add lsb-release-udeb package.
-    - Record md5sums of unmodified /etc/profile versions so that we can
-      upgrade it automatically.
-    - Various bashrc extensions.
-    - Do not install /usr/local dirs with staff group writeability, as there
-      are cases where somebody can become any user but root (like NFS).
-    - Update the motd upgrade handling to know about /etc/motd.tail.
-    - Add default /etc/networks file.
-    - Added information about the docs web page.
-    - Restore order line in /etc/host.conf with a comment.
-    - Ship /root mode 700 by default.
-    - Add update-motd scripts.
+  * The /etc/profile.d mechanism may be used to override PS1 setting
+    in /etc/bash.bashrc, which is particularly nice because there is
+    no need to modify /etc/profile or /etc/bash.bashrc for that,
+    but this is no longer possible if /etc/profile.d is sourced
+    before /etc/bash.bashrc. Therefore, /etc/profile.d is sourced
+    after /etc/bash.bashrc again. Closes: #766351.
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 25 Oct 2011 09:06:14 +0100
+ -- Santiago Vila <sanvila@debian.org>  Wed, 22 Oct 2014 16:10:30 +0200
+
+base-files (7.7) unstable; urgency=low
+
+  * Updated FAQ to explain that only /etc/debian_version is updated at
+    every point release, using Debian 8.x as an example, to be read by
+    users of jessie during its lifetime as stable. Closes: #621757.
+  * Changed default /etc/profile to source /etc/bash.bashrc after
+    processing profile.d stuff, not before. Closes: #698479.
+  * Drop comment lines about umask in /etc/profile, as it has been
+    there for enough time for everybody to take note.
+  * The directory /mnt is not included inside base-files.deb anymore.
+    Instead, it is created by postinst the very first time base-files
+    is installed (by debootstrap), or when upgrading from an earlier
+    base-files version. This should make the usual upgrade at every point
+    release to work even if /mnt is a stale mount point. Closes: #763405.
+
+ -- Santiago Vila <sanvila@debian.org>  Tue, 21 Oct 2014 21:20:14 +0200
+
+base-files (7.6) unstable; urgency=low
+
+  * By default, when the computer is booting, green and red colors are used
+    to signal that a service started successfully, or that it did not.
+    In this context, trying to use colors for something else might be
+    misleading or even confusing. For this reason, I'm dropping
+    ANSI_COLOR from /usr/lib/os-release. Closes: #758246.
+  * Clarified in the copyright file that the Artistic License currently
+    in common-licenses is actually the one coming from Perl. Closes: #764553.
+
+ -- Santiago Vila <sanvila@debian.org>  Thu, 09 Oct 2014 20:27:00 +0200
+
+base-files (7.5) unstable; urgency=medium
+
+  * Made /etc/os-release symlink to be relative, as an absolute symlink
+    seems to break boot when using a dracut initrd. Thanks to Daniel Schaal
+    for the report. Closes: #755394.
+
+ -- Santiago Vila <sanvila@debian.org>  Sun, 20 Jul 2014 12:10:26 +0200
+
+base-files (7.4) unstable; urgency=medium
+
+  * Updated FAQ to match current policy wording about common-licenses.
+    Thanks to Gioele Barabucci for the report. Closes: #723195.
+  * Moved /etc/os-release to /usr/lib/os-release. Put a symlink pointing to
+    the new place. Thanks to Marco d'Itri for the report. Closes: #753658.
+  * Changed BUG_REPORT_URL in os-release to https, as the BTS has moved.
+    Thanks to Martin Zobel-Helas for the report. Closes: #754455.
+
+ -- Santiago Vila <sanvila@debian.org>  Sat, 19 Jul 2014 18:00:08 +0200
+
+base-files (7.3) unstable; urgency=medium
+
+  * Added gshadow entry to default /etc/nsswitch.conf. Closes: #699090.
+  * Update /etc/nsswitch.conf if not modified by the user. Closes: #716786.
+  * Added nsswitch.conf.md5sums which works exactly like profile.md5sums.
+  * Changed debian/check-etc-profile-md5sum to debian/check-md5sum-etc.
+    This is now used twice in debian/rules, for profile and nsswitch.conf.
+  * Build package with -Zgzip to ease bootstrapping. Closes: #740278.
+  * Reformat paragraph in previous changelog to avoid too long lines.
+  * Added build-arch and build-indep targets to debian/rules.
+  * Standards-Version: 3.9.5 (no special changes for this).
+
+ -- Santiago Vila <sanvila@debian.org>  Sun, 04 May 2014 14:39:06 +0200
+
+base-files (7.2) unstable; urgency=medium
+
+  * Changed issue, issue.net, debian_version and os-release to read
+    "jessie/sid", and dropped VERSION and VERSION_ID from os-release.
+
+ -- Santiago Vila <sanvila@debian.org>  Sun, 05 May 2013 18:19:00 +0200
+
+base-files (7.1) unstable; urgency=low
+
+  * Added Multi-Arch: foreign. This is needed even if base-files is
+    "Essential: yes" because there are quite a number of packages
+    having versioned dependencies on it. Closes: #695863.
+
+ -- Santiago Vila <sanvila@debian.org>  Fri, 14 Dec 2012 13:55:36 +0100
+
+base-files (7.0) unstable; urgency=low
+
+  * Oops. Even if the Breaks on sendfile does not help APT to decide about
+    the configuration order, removing the breaks is wrong, because then it is
+    possible to upgrade base-files and not sendfile, which would effectively
+    break sendfile. Readded Breaks on sendfile.
+
+ -- Santiago Vila <sanvila@debian.org>  Wed, 12 Dec 2012 13:05:12 +0100
+
+base-files (7) unstable; urgency=low
+
+  * Added 89126d8bba3325594e1539bcc97847f3 to the list of /etc/profile
+    md5sums which are ok to be replaced by the current default version to
+    help sendfile to fix its /etc/profile modification bug in a single
+    upgrade (instead of waiting for the next point release). Closes: #689835.
+    Drop "unmodified" word in postinst, as it may not always be true.
+  * Dropped versioned Breaks on sendfile, as it had no effect.
+  * Changed debian_version, issue, issue.net and os-release to read "7.0".
+    Added also "(wheezy)" in VERSION and PRETTY_NAME.
+  * Added VERSION and VERSION_ID to /etc/os-release, for release as stable.
+    Please remember: Applications should not rely on these fields to be set.
+  * Updated README (wheezy -> jessie).
+
+ -- Santiago Vila <sanvila@debian.org>  Wed, 12 Dec 2012 12:55:00 +0100
+
+base-files (6.12) unstable; urgency=low
+
+  * Added HOME_URL, SUPPORT_URL and BUG_REPORT_URL to /etc/os-release.
+    Reported by Raphaël Hertzog. Closes: #681480.
+  * Added Breaks: sendfile (<< version in squeeze) to help sendfile bug
+    regarding improper modification of /etc/profile to be fixed faster.
+    Reported by Andreas Beckmann. Closes: #689835.
+  * Make /var/run and /var/lock absolute again.
+    Reported by Roger Leigh. Closes: #690345.
+
+ -- Santiago Vila <sanvila@debian.org>  Sat, 27 Oct 2012 17:41:00 +0200
+
+base-files (6.11) unstable; urgency=medium
+
+  * Create /etc/motd instead of /etc/motd.tail, with same default contents,
+    as initscripts is now using /etc/motd again as a real file.
+
+ -- Santiago Vila <sanvila@debian.org>  Sun, 17 Jun 2012 14:14:44 +0200
+
+base-files (6.10) unstable; urgency=low
+
+  * Record md5sums of unmodified /etc/profile versions so that we can
+    upgrade it automatically, as it's done in Ubuntu.
+  * In the initial install, create /etc/motd.tail instead of /etc/motd,
+    as /etc/motd is converted to a symlink by initscripts and /etc/motd.tail
+    is since a long time the master copy to which the output of uname is added.
+    Remove postinst code which tries to update /etc/motd, as it does no longer
+    work and the file has not changed in a lot of time. Will add code to
+    update /etc/motd.tail based on md5sum if it ever changes in a future.
+  * Implement proposed transition plan for group staff in /usr/local.
+    The file /etc/staff-group-for-usr-local is now created on upgrades
+    from releases before 6.10 and (for now) also on initial install.
+  * Removed reference to /etc/nsswitch.conf in extended description, as
+    the file is being moved to libc-bin.
+
+ -- Santiago Vila <sanvila@debian.org>  Sat, 09 Jun 2012 17:41:30 +0200
+
+base-files (6.9) unstable; urgency=low
+
+  * We can't make /etc/profile a conffile without triggering a piuparts
+    check which is considered to be serious. Sorry, /etc/profile
+    will be handled as before for now. Closes: #673767.
+
+ -- Santiago Vila <sanvila@debian.org>  Mon, 21 May 2012 15:12:06 +0200
+
+base-files (6.8) unstable; urgency=low
+
+  * Added /etc/os-release. Closes: #659853. Note: for stable releases
+    this file will look like it's suggested in the bug report above.
+    Also, like /etc/debian_version, this file should only be considered
+    meaningful for stable releases, which testing and unstable are not.
+  * By popular demand, make /etc/profile a conffile. Closes: #668871.
+  * Added /sys for all systems but the Hurd. Closes: #670091.
+  * Added /proc for the Hurd, as it's already being used.
+  * Added a lintian override for /root being 700.
+
+ -- Santiago Vila <sanvila@debian.org>  Thu, 17 May 2012 00:08:42 +0200
+
+base-files (6.7) unstable; urgency=low
+
+  * Switch to "compat" again in default /etc/nsswitch.conf. It is not
+    obsolete and it should not go away. Closes: #651356.
+    Thanks a lot to Petter Reinholdtsen.
+
+ -- Santiago Vila <sanvila@debian.org>  Sun, 04 Mar 2012 01:02:00 +0100
+
+base-files (6.6) unstable; urgency=low
+
+  * Switch to "files" instead of "compat" in default /etc/nsswitch.conf.
+    That was only useful for libc5. The new default will only take
+    effect for new installs. Thanks to Roger Leigh. Closes: #651356.
+  * Reword the very first question in base-files FAQ. Closes: #622200.
+  * When migrating /var/run and /var/lock, create relative symlinks
+    instead of absolute ones. Useful for chroots. Closes: #652301.
+
+ -- Santiago Vila <sanvila@debian.org>  Sat, 03 Mar 2012 16:35:22 +0100
 
 base-files (6.5) unstable; urgency=low
 
@@ -99,80 +283,6 @@ base-files (6.5) unstable; urgency=low
     is invoked as /bin/sh. Closes: #632887.
 
  -- Santiago Vila <sanvila@debian.org>  Fri, 29 Jul 2011 21:03:02 +0200
-
-base-files (6.4ubuntu6) precise; urgency=low
-
-  * /etc/issue, /etc/issue.net, /etc/lsb-release: Welcome to Precise!
-
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 13 Oct 2011 16:03:05 +0100
-
-base-files (6.4ubuntu5) oneiric; urgency=low
-
-  * /etc/issue, /etc/issue.net, /etc/lsb-release: Prepare for Oneiric
-    release.
-
- -- Colin Watson <cjwatson@ubuntu.com>  Sat, 08 Oct 2011 00:45:55 +0100
-
-base-files (6.4ubuntu4) oneiric; urgency=low
-
-  * debian/preinst:
-    - fix conffile prompt for unmodified 00-header, 10-help-text 
-      (LP: #820233)
-  * debian/rules:
-    - install the preinst into the package as no helper is used
-
- -- Michael Vogt <michael.vogt@ubuntu.com>  Wed, 03 Aug 2011 10:44:29 +0200
-
-base-files (6.4ubuntu3) oneiric; urgency=low
-
-  * add update-motd.d files to conffiles (LP: #813282)
-
- -- Brian Murray <brian@ubuntu.com>  Wed, 20 Jul 2011 16:04:07 -0700
-
-base-files (6.4ubuntu2) oneiric; urgency=low
-
-  * update-motd.d/10-help-text: modify server documentation link to be the
-    official documentation page of the installed distribution.  Thanks to Tim
-    Kuijsten for working on this. (LP: #744253)
-  * rather than depend on lsb-release test to see if lsb_release is available
-    (LP: #575885)
-
- -- Brian Murray <brian@ubuntu.com>  Thu, 14 Jul 2011 13:29:27 -0700
-
-base-files (6.4ubuntu1) oneiric; urgency=low
-
-  * Merge from Debian unstable, remaining changes:
-    - Branding changes.
-    - Add /etc/lsb-release file.
-    - Add lsb-release-udeb package.
-    - Record md5sums of unmodified /etc/profile versions so that we can
-      upgrade it automatically.
-    - Various bashrc extensions.
-    - Do not install /usr/local dirs with staff group writeability, as there
-      are cases where somebody can become any user but root (like NFS).
-    - Update the motd upgrade handling to know about /etc/motd.tail.
-    - Add default /etc/networks file.
-    - Added information about the docs web page.
-    - Restore order line in /etc/host.conf with a comment.
-    - Ship /root mode 700 by default.
-  * Dropped changes:
-    - drop versioned dependency on libpam-modules, satisfied in all versions
-      since hardy (and earlier)
-    - remove /var/lock and /var/run: this is handled differently in Debian,
-      no reason to diverge
-    - fixing up permissions of files copied by ubiquity: transition completed
-      in lucid.
-    - debian/postinst.in: replace references to /var/run with /run: /run is
-      still a draft standard for the time being and should only be used for
-      those parts of the system that were being placed *other* than in
-      /var/run for various reasons (e.g., /dev/.udev, /lib/init/rw).
-      /var/run must continue to exist and be functional, and initscripts
-      guarantees a smooth transition from /var/run to /run once we are ready
-      to start doing away with /var/run (once the FHS officially ratifies
-      /run as its replacement), so there's no reason to diverge from Debian
-      here.
-
- -- Steve Langasek <steve.langasek@ubuntu.com>  Wed, 13 Jul 2011 13:30:10 -0700
 
 base-files (6.4) unstable; urgency=low
 
@@ -188,51 +298,6 @@ base-files (6.4) unstable; urgency=low
   * Thanks a lot to Roger Leigh.
 
  -- Santiago Vila <sanvila@debian.org>  Fri, 27 May 2011 14:25:42 +0200
-
-base-files (6.3ubuntu4) oneiric; urgency=low
-
-  * Removed duplicate code in share/profile, causing /etc/profile.d/*
-    scripts to be executed twice (LP: #790050)
-
- -- Alexander Fougner <fougner89@gmail.com>  Sat, 18 Jun 2011 00:23:05 +0200
-
-base-files (6.3ubuntu3) oneiric; urgency=low
-
-  * debian/1777-dirs: remove /var/lock (replaced by /run/lock on tmpfs)
-  * debian/directory-list: remove /var/run and /var/lock, add /run
-  * debian/postinst.in: replace references to /var/run with /run
-
- -- Scott James Remnant <scott@netsplit.com>  Thu, 07 Jul 2011 13:33:06 -0400
-
-base-files (6.3ubuntu2) oneiric; urgency=low
-
-  * Restore /usr/share/base-files/networks.
-
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 04 May 2011 23:20:17 +0100
-
-base-files (6.3ubuntu1) oneiric; urgency=low
-
-  * Merge with Debian; remaining changes:
-    - Branding changes.
-    - Add /etc/lsb-release file.
-    - Add lsb-release-udeb package.
-    - Record md5sums of unmodified /etc/profile versions so that we can
-      upgrade it automatically.
-    - Various bashrc extensions.
-    - Restore order line in /etc/host.conf with a comment.
-    - Add default /etc/networks file.
-    - Implement LSB-3.1, 16.2 (/etc/profile.d).
-    - Added information about the docs web page.
-    - Update the motd upgrade handling to know about /etc/motd.tail.
-    - Do not install /usr/local dirs with staff group writeability, as there
-      are cases where somebody can become any user but root (like NFS).
-    - Change permissions of kernels copied from the Live CD by Ubiquity
-      1.9.4 thru 1.10.9.
-    - Correct group ownership of files changed by Ubiquity 1.7.5 thru
-      1.10.9.
-    - Ship /root mode 700 by default.
-
- -- Matthias Klose <doko@ubuntu.com>  Wed, 04 May 2011 10:31:43 +0200
 
 base-files (6.3) unstable; urgency=low
 
@@ -371,250 +436,6 @@ base-files (5.1) unstable; urgency=low
 
  -- Santiago Vila <sanvila@debian.org>  Sun, 31 Jan 2010 13:16:14 +0100
 
-base-files (5.0.0ubuntu29) oneiric; urgency=low
-
-  * /etc/issue, /etc/issue.net, /etc/lsb-release: Welcome to Oneiric!
-
- -- Matthias Klose <doko@ubuntu.com>  Thu, 21 Apr 2011 18:58:47 +0200
-
-base-files (5.0.0ubuntu28) natty; urgency=low
-
-  * /etc/issue, /etc/issue.net, /etc/lsb-release: Prepare for Natty release.
-
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 21 Apr 2011 17:20:37 +0100
-
-base-files (5.0.0ubuntu27) natty; urgency=low
-
-  * Capitalize Natty in DISTRIB_DESCRIPTION.
-
- -- Evan Dandrea <ev@ubuntu.com>  Thu, 24 Feb 2011 11:58:12 +0000
-
-base-files (5.0.0ubuntu26) natty; urgency=low
-
-  * Ignore errors from update-motd (LP: #682843).
-
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 02 Dec 2010 17:43:30 +0000
-
-base-files (5.0.0ubuntu25) natty; urgency=low
-
-  * debian/update-motd.d/00-header, debian/update-motd.d/10-help-text,
-    debian/update-motd.d/99-footer:
-    - add copyright/license header
-    - simplify/shorten text, LP: #578264
-    - speed up boot by having 00-header source /etc/lsb-release, if possible,
-      and only using lsb_release as a fall back, LP: #617410, #664492
-  * debian/postinst.in: ensure that /var/run/motd is populated on package
-    install/upgrade, LP: #614486
-
- -- Dustin Kirkland <kirkland@ubuntu.com>  Thu, 21 Oct 2010 08:43:01 -0500
-
-base-files (5.0.0ubuntu24) natty; urgency=low
-
-  * /etc/issue, /etc/issue.net, /etc/lsb-release: Welcome to Natty!
-
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 11 Oct 2010 15:35:43 +0100
-
-base-files (5.0.0ubuntu23) maverick; urgency=low
-
-  * Prepare for Maverick release: etc/{lsb-release,issue,issue.net}.
-
- -- Thierry Carrez (ttx) <thierry.carrez@ubuntu.com>  Thu, 07 Oct 2010 09:47:59 +0100
-
-base-files (5.0.0ubuntu22) maverick; urgency=low
-
-  * debian/postinst.in: A bug in the build process for the Dell Latitude 2110
-    factory pre-installed OEM images caused a temporary apt configuration file
-    to be left in the installed system. This disabled apt's enforcement of
-    authenticated packages. Remove the file on upgrades if it matches the
-    factory version. (LP: #610647)
-
- -- Martin Pitt <martin.pitt@ubuntu.com>  Wed, 28 Jul 2010 18:46:45 +0200
-
-base-files (5.0.0ubuntu21) maverick; urgency=low
-
-  * /etc/issue, /etc/issue.net, /etc/lsb-release: Welcome to Maverick!
-
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 04 May 2010 17:42:31 +0100
-
-base-files (5.0.0ubuntu20) lucid; urgency=low
-
-  * 00-header: use lsb_release -s -d so LTS is displayed LP: #568628
-
- -- Brian Murray <brian@ubuntu.com>  Thu, 22 Apr 2010 12:12:29 -0700
-
-base-files (5.0.0ubuntu19) lucid; urgency=low
-
-  * Prepare for Lucid release: etc/{lsb-release,issue,issue.net}.
-
- -- Steve Langasek <steve.langasek@ubuntu.com>  Tue, 20 Apr 2010 03:50:12 -0700
-
-base-files (5.0.0ubuntu18) lucid; urgency=low
-
-  * debian/postinst.in: clear release-upgrade flag, and update again
-    immediately on base-files upgrades, LP: #563015
-
- -- Dustin Kirkland <kirkland@ubuntu.com>  Wed, 14 Apr 2010 09:25:15 -0500
-
-base-files (5.0.0ubuntu17) lucid; urgency=low
-
-  * debian/rules, debian/postinst.in: second half of the fix for the
-    previous upload; drop symlink creation in debian/rules, LP: #561778
-
- -- Dustin Kirkland <kirkland@ubuntu.com>  Mon, 12 Apr 2010 18:23:39 -0500
-
-base-files (5.0.0ubuntu16) lucid; urgency=low
-
-  * debian/postinst.in: only create /etc/motd link on initial install;
-    thereafter, it's entirely up to the admin whether to keep this
-    link or modify it to their wishes, LP: #561778
-
- -- Dustin Kirkland <kirkland@ubuntu.com>  Mon, 12 Apr 2010 15:23:12 -0500
-
-base-files (5.0.0ubuntu15) lucid; urgency=low
-
-  * debian/links, debian/postinst.in, debian/rules:
-    remove artifacts of old base motd creation, keep duplicated data
-    from popping up in motd, LP: #516293
-
- -- Dustin Kirkland <kirkland@ubuntu.com>  Fri, 09 Apr 2010 14:23:01 -0500
-
-base-files (5.0.0ubuntu14) lucid; urgency=low
-
-  Fix double-printing of motd.tail, LP: #550561
-  * debian/postinst.in: motd.tail should no longer be generated by this
-    package; rather it's where the sysadmin would add static text to
-    append to the dynamically generated /etc/motd
-  * debian/update-motd.d/*, debian/rules:
-    - move update-motd scripts to this dir, clean up install rules
-      (scripts were getting installed in two places)
-    - 00-header: add the lsb_release information, which seems at least
-      as pertinent as the kernel's version and build-date
-    - 00-header, 99-footer: split the header (uname, lsb_release) and
-      the footer (admin's motd.tail) to two separate scripts
-
- -- Dustin Kirkland <kirkland@ubuntu.com>  Wed, 31 Mar 2010 14:56:49 -0500
-
-base-files (5.0.0ubuntu13) lucid; urgency=low
-
-  * debian/10-help-text: fix url, no https for server doc
-
- -- Dustin Kirkland <kirkland@ubuntu.com>  Thu, 25 Mar 2010 11:08:56 -0700
-
-base-files (5.0.0ubuntu12) lucid; urgency=low
-
-  * debian/10-help-text: line up the help text, make it more concise and
-    consistent with the other help-text update-motd insertions from other
-    packages
-
- -- Dustin Kirkland <kirkland@ubuntu.com>  Thu, 25 Mar 2010 11:06:52 -0700
-
-base-files (5.0.0ubuntu11) lucid; urgency=low
-
-  * share/dot.bashrc: Sync with bash's skeleton bashrc, just don't
-    enable command completion by default.
-    - Uncomment useful aliases for ll, la, and l, to better match sysadmin's
-      expectations coming from other enterprise distros (Dustin Kirkland).
-      LP: #545262.
-
- -- Matthias Klose <doko@ubuntu.com>  Thu, 25 Mar 2010 14:19:44 +0100
-
-base-files (5.0.0ubuntu10) lucid; urgency=low
-
-  * etc/00-header: handle non-zero exit if /etc/motd.tail does not exist,
-    LP: #492387
-
- -- Dustin Kirkland <kirkland@ubuntu.com>  Mon, 07 Dec 2009 17:05:18 -0600
-
-base-files (5.0.0ubuntu9) lucid; urgency=low
-
-  * etc/motd, etc/10-help-text, debian/rules: move the help text
-    out of the stock, static /etc/motd.tail, putting it into a
-    dynamic update-motd script, such that appropriate links can
-    be dynamically displayed, LP: #490392
-  * share/motd.md5sums: add karmic's motd.tail md5sum
-
- -- Dustin Kirkland <kirkland@ubuntu.com>  Tue, 01 Dec 2009 16:07:54 -0600
-
-base-files (5.0.0ubuntu8) lucid; urgency=low
-
-  * /etc/issue, /etc/issue.net, /etc/lsb-release: Welcome to Lucid!
-
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 30 Oct 2009 11:39:07 +0000
-
-base-files (5.0.0ubuntu7) karmic; urgency=low
-
-  * Prepare for Karmic release: etc/{lsb-release,issue,issue.net}.
-
- -- Steve Langasek <steve.langasek@ubuntu.com>  Mon, 19 Oct 2009 16:44:48 -0700
-
-base-files (5.0.0ubuntu6) karmic; urgency=low
-
-  * etc/00-header, debian/directory-list, debian/rules: pam_motd will
-    now dynamically build a MOTD by running all scripts in
-    /etc/update-motd.d and concatenating the output; seed that MOTD
-    with the standard header, LP: #399071
-
- -- Dustin Kirkland <kirkland@ubuntu.com>  Mon, 13 Jul 2009 21:30:55 -0500
-
-base-files (5.0.0ubuntu5) karmic; urgency=low
-
-  * etc/legal.sh: dropped, as the display of /etc/legal is now
-    handled by update-motd
-  * etc/legal: keep this text here, though, as this seems to be
-    the most appropriate, maintainable place for it
-
- -- Dustin Kirkland <kirkland@ubuntu.com>  Mon, 13 Jul 2009 14:18:45 -0500
-
-base-files (5.0.0ubuntu4) karmic; urgency=low
-
-  * etc/legal.sh: per feedback from pitti, the flag was moved to
-    ~/.cache/motd/legal-displayed
-
- -- Dustin Kirkland <kirkland@ubuntu.com>  Thu, 09 Jul 2009 14:34:14 -0500
-
-base-files (5.0.0ubuntu3) karmic; urgency=low
-
-  * etc/motd, etc/legal.sh, debian/rules, share/motd.md5sums: pursuant to
-    consultation with Canonical's Legal Department, it is sufficient
-    to display the warranty disclaimer only once per user; move this
-    text out of the stock /etc/motd, and into an /etc/profile.d/legal.sh
-    script; display the text if a certain flag is not detected and touch
-    the flag file
-
- -- Dustin Kirkland <kirkland@ubuntu.com>  Wed, 08 Jul 2009 16:55:12 -0500
-
-base-files (5.0.0ubuntu2) karmic; urgency=low
-
-  * Add "Parent: Debian" to /etc/dpkg/origins/ubuntu, which will be useful
-    with the dpkg-vendor program in dpkg 1.15.1.
-
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 11 May 2009 16:32:12 +0100
-
-base-files (5.0.0ubuntu1) karmic; urgency=low
-
-  * Resynchronise with Debian. Remaining changes:
-    - Branding changes.
-    - Add /etc/lsb-release file.
-    - Add lsb-release-udeb package.
-    - Record md5sums of unmodified /etc/profile versions so that we can
-      upgrade it automatically.
-    - Various bashrc extensions.
-    - Restore order line in /etc/host.conf with a comment.
-    - Add default /etc/networks file.
-    - Implement LSB-3.1, 16.2 (/etc/profile.d).
-    - Added information about the docs web page.
-    - Update the motd upgrade handling to know about /etc/motd.tail.
-    - Do not install /usr/local dirs with staff group writeability, as there
-      are cases where somebody can become any user but root (like NFS).
-    - Change permissions of kernels copied from the Live CD by Ubiquity
-      1.9.4 thru 1.10.9.
-    - Correct group ownership of files changed by Ubiquity 1.7.5 thru
-      1.10.9.
-    - Ship /root mode 700 by default.
-  * Add /etc/dpkg/origins/ubuntu, and point the default symlink to that.
-
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 27 Apr 2009 10:57:55 +0100
-
 base-files (5.0.0) unstable; urgency=low
 
   * Drop README.base, remove-base, and the lines in postinst which checked
@@ -630,32 +451,6 @@ base-files (5.0.0) unstable; urgency=low
 
  -- Santiago Vila <sanvila@debian.org>  Fri, 24 Apr 2009 21:02:42 +0200
 
-base-files (5.0ubuntu1) karmic; urgency=low
-
-  * Resynchronise with Debian. Remaining changes:
-    - Branding changes.
-    - Add /etc/lsb-release file.
-    - Add lsb-release-udeb package.
-    - Record md5sums of unmodified /etc/profile versions so that we can
-      upgrade it automatically.
-    - Various bashrc extensions.
-    - Restore order line in /etc/host.conf with a comment.
-    - Add default /etc/networks file.
-    - Implement LSB-3.1, 16.2 (/etc/profile.d).
-    - Added information about the docs web page.
-    - Update the motd upgrade handling to know about /etc/motd.tail.
-    - Do not install /usr/local dirs with staff group writeability, as there
-      are cases where somebody can become any user but root (like NFS).
-    - Change permissions of kernels copied from the Live CD by Ubiquity
-      1.9.4 thru 1.10.9.
-    - Correct group ownership of files changed by Ubiquity 1.7.5 thru
-      1.10.9.
-    - Ship /root mode 700 by default.
-    - Drop seeding of /etc/adjtime.
-  * /etc/issue, /etc/issue.net, /etc/lsb-release: Welcome to Karmic!
-
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 24 Apr 2009 13:48:26 +0100
-
 base-files (5.0) unstable; urgency=medium
 
   * Changed issue, issue.net and debian_version to read "squeeze/sid".
@@ -666,50 +461,6 @@ base-files (5.0) unstable; urgency=medium
 
  -- Santiago Vila <sanvila@debian.org>  Thu, 26 Feb 2009 17:09:38 +0100
 
-base-files (5ubuntu4) jaunty; urgency=low
-
-  * Prepare for Jaunty release: etc/{lsb-release,issue,issue.net}.
-
- -- Steve Langasek <steve.langasek@ubuntu.com>  Mon, 13 Apr 2009 09:26:01 +0000
-
-base-files (5ubuntu3) jaunty; urgency=low
-
-  [ Scott James Remnant ]
-  * debian/postinst: Drop seeding of /etc/adjtime after discussion with
-    the Debian maintainer.
-
- -- Scott James Remnant <scott@ubuntu.com>  Thu, 05 Mar 2009 17:34:15 +0000
-
-base-files (5ubuntu2) jaunty; urgency=low
-
-  * debian/{700-dirs,rules}: ship /root mode 700 by default (debian
-    bug 514794).
-
- -- Kees Cook <kees@ubuntu.com>  Tue, 10 Feb 2009 13:55:51 -0800
-
-base-files (5ubuntu1) jaunty; urgency=low
-
-  * Resynchronise with Debian. Remaining changes:
-    - Branding changes.
-    - Add /etc/lsb-release file.
-    - Add lsb-release-udeb package.
-    - Record md5sums of unmodified /etc/profile versions so that we can
-      upgrade it automatically.
-    - Various bashrc extensions.
-    - Restore order line in /etc/host.conf with a comment.
-    - Add default /etc/networks file.
-    - Implement LSB-3.1, 16.2 (/etc/profile.d).
-    - Added information about the docs web page.
-    - Update the motd upgrade handling to know about /etc/motd.tail.
-    - Do not install /usr/local dirs with staff group writeability, as there
-      are cases where somebody can become any user but root (like NFS).
-    - Change permissions of kernels copied from the Live CD by Ubiquity
-      1.9.4 thru 1.10.9.
-    - Correct group ownership of files changed by Ubiquity 1.7.5 thru
-      1.10.9.
-
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 23 Dec 2008 18:55:10 +0000
-
 base-files (5) unstable; urgency=low
 
   * Changed issue, issue.net and debian_version to read "5.0".
@@ -717,29 +468,6 @@ base-files (5) unstable; urgency=low
     when they upgrade to the new testing.
 
  -- Santiago Vila <sanvila@debian.org>  Thu, 04 Dec 2008 10:04:04 +0100
-
-base-files (4.0.6ubuntu1) jaunty; urgency=low
-
-  * Resynchronise with Debian. Remaining changes:
-    - Branding changes.
-    - Add /etc/lsb-release file.
-    - Add lsb-release-udeb package.
-    - Record md5sums of unmodified /etc/profile versions so that we can
-      upgrade it automatically.
-    - Various bashrc extensions.
-    - Restore order line in /etc/host.conf with a comment.
-    - Add default /etc/networks file.
-    - Implement LSB-3.1, 16.2 (/etc/profile.d).
-    - Added information about the docs web page.
-    - Update the motd upgrade handling to know about /etc/motd.tail.
-    - Do not install /usr/local dirs with staff group writeability, as there
-      are cases where somebody can become any user but root (like NFS).
-    - Change permissions of kernels copied from the Live CD by Ubiquity
-      1.9.4 thru 1.10.9.
-    - Correct group ownership of files changed by Ubiquity 1.7.5 thru
-      1.10.9.
-
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 10 Nov 2008 12:00:09 +0000
 
 base-files (4.0.6) unstable; urgency=low
 
@@ -751,36 +479,6 @@ base-files (4.0.6) unstable; urgency=low
     Closes: #488376.
 
  -- Santiago Vila <sanvila@debian.org>  Tue, 04 Nov 2008 20:34:12 +0100
-
-base-files (4.0.5ubuntu2) jaunty; urgency=low
-
-  * Correct copy-and-paste mistake in previous changelog.
-
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 31 Oct 2008 13:30:43 +0000
-
-base-files (4.0.5ubuntu1) jaunty; urgency=low
-
-  * Resynchronise with Debian. Remaining changes:
-    - Branding changes.
-    - Add /etc/lsb-release file.
-    - Add lsb-release-udeb package.
-    - Record md5sums of unmodified /etc/profile versions so that we can
-      upgrade it automatically.
-    - Various bashrc extensions.
-    - Restore order line in /etc/host.conf with a comment.
-    - Add default /etc/networks file.
-    - Implement LSB-3.1, 16.2 (/etc/profile.d).
-    - Added information about the docs web page.
-    - Update the motd upgrade handling to know about /etc/motd.tail.
-    - Do not install /usr/local dirs with staff group writeability, as there
-      are cases where somebody can become any user but root (like NFS).
-    - Change permissions of kernels copied from the Live CD by Ubiquity
-      1.9.4 thru 1.10.9.
-    - Correct group ownership of files changed by Ubiquity 1.7.5 thru
-      1.10.9.
-  * /etc/issue, /etc/issue.net, /etc/lsb-release: Welcome to Jaunty!
-
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 31 Oct 2008 13:17:58 +0000
 
 base-files (4.0.5) unstable; urgency=low
 
@@ -795,51 +493,6 @@ base-files (4.0.5) unstable; urgency=low
   * It's still soon to change /etc/debian_version. Please be patient.
 
  -- Santiago Vila <sanvila@debian.org>  Tue,  5 Aug 2008 18:06:06 +0200
-
-base-files (4.0.4ubuntu2.2) intrepid-security; urgency=low
-
-  * Ubiquity cleanup: do not fail on missing symlink targets.
-
- -- Kees Cook <kees@ubuntu.com>  Thu, 30 Oct 2008 10:55:33 -0700
-
-base-files (4.0.4ubuntu2.1) intrepid-security; urgency=low
-
-  * SECURITY UPDATE: change permissions of kernels copied from the Live CD
-    by Ubiquity 1.9.4 thru 1.10.9. LP: #290798.
-
-  * Correct group ownership of files changed by Ubiquity 1.7.5 thru 1.10.9.
-    LP: #288479.
-
- -- Scott James Remnant <scott@ubuntu.com>  Wed, 29 Oct 2008 20:50:56 +0000
-
-base-files (4.0.4ubuntu2) intrepid; urgency=low
-
-  * Prepare for Intrepid release: etc/{lsb-release,issue,issue.net}.
-
- -- Steve Langasek <steve.langasek@ubuntu.com>  Mon, 20 Oct 2008 12:07:29 +0000
-
-base-files (4.0.4ubuntu1) intrepid; urgency=low
-
-  * Merge from debian unstable (LP: #247082), remaining changes:
-    - Branding changes
-    - Add /etc/lsb-release file
-    - Add lsb-release-udeb package
-    - Record md5sums of unmodified /etc/profile versions so that we can
-      upgrade it automatically
-    - Various bashrc extensions
-    - Restore order line in /etc/host.conf with a comment
-    - Add default /etc/networks file
-    - Implement LSB-3.1, 16.2 (/etc/profile.d)
-    - Added information about the docs web page
-    - Update the motd upgrade handling to know about /etc/motd.tail
-    - Do not install /usr/local dirs with staff group writeability, as there
-      are cases where somebody can become any user but root (like NFS)
-  * Dropped changes (transitional code):
-    - Add default /etc/networks file on upgrade
-    - Fix 4.0.1ubuntu3 motd upgrade
-    - On amd64, depend on a libc6 that ships /lib64 to avoid broken upgrades
-
- -- Thierry Carrez <thierry.carrez@ubuntu.com>  Fri, 08 Aug 2008 10:02:16 +0200
 
 base-files (4.0.4) unstable; urgency=low
 
@@ -863,62 +516,6 @@ base-files (4.0.2) unstable; urgency=low
 
  -- Santiago Vila <sanvila@debian.org>  Mon, 19 Nov 2007 19:04:10 +0100
 
-base-files (4.0.1ubuntu6) intrepid; urgency=low
-
-  * Update for Intrepid: etc/{lsb-release,issue,issue.net}
-
- -- Adam Conrad <adconrad@ubuntu.com>  Mon, 28 Apr 2008 12:24:54 -0600
-
-base-files (4.0.1ubuntu5) hardy; urgency=low
-
-  * Prepare for Hardy release: etc/{lsb-release,issue,issue.net}.
-
- -- Steve Langasek <steve.langasek@ubuntu.com>  Tue, 15 Apr 2008 05:05:24 +0000
-
-base-files (4.0.1ubuntu4) hardy; urgency=low
-
-  * Update the motd upgrade handling to know about /etc/motd.tail, which
-    is where the static contents of the motd are stored now with
-    initscripts 2.86.ds1-7 and above; and handle fixing the broken 
-    upgrades introduced in 4.0.1ubuntu3.  LP: #214853
-
- -- Steve Langasek <steve.langasek@ubuntu.com>  Thu, 10 Apr 2008 00:02:43 +0000
-
-base-files (4.0.1ubuntu3) hardy; urgency=low
-
-  * Added information about the docs web page (LP: #159371)
-
- -- Nicolas Valcarcel <nvalcarcel@ubuntu.com>  Thu, 03 Apr 2008 00:13:05 -0500
-
-base-files (4.0.1ubuntu2) hardy; urgency=low
-
-  * Implement LSB-3.1, 16.2 (/etc/profile.d). Addresses LP #102105.
-    According to Debian policy 9.9 (Environment variables), programs
-    installed by packages must not depend on environment variables
-    to get reasonable defaults. Do not use this LSB feature to set
-    or modify environment variables.
-
- -- Matthias Klose <doko@ubuntu.com>  Wed, 06 Feb 2008 15:27:17 +0100
-
-base-files (4.0.1ubuntu1) hardy; urgency=low
-
-  * Merge from Debian unstable.
-  * Remaining Ubuntu changes:
-    - Branding changes.
-    - Add /etc/lsb-release file.
-    - Add lsb-release-udeb package.
-    - Record md5sums of unmodified /etc/profile versions so that we can
-      upgrade it automatically.
-    - Various bashrc extensions.
-    - Restore order line in /etc/host.conf with a comment.
-    - Add default /etc/networks file.
-  * Ubuntu changes dropped:
-    - Added version 3 of the LGPL license, taken from
-      http://www.gnu.org/licenses/lgpl-3.0.txt
-  * ubuntu-devel -> ubuntu-devel-discuss for the Maintainer field.
-
- -- Steve Kowalik <stevenk@ubuntu.com>  Mon, 29 Oct 2007 07:31:52 +1100
-
 base-files (4.0.1) unstable; urgency=low
 
   * Added GPL-3 and LGPL-3 to common-licenses, as they are expected to
@@ -929,75 +526,12 @@ base-files (4.0.1) unstable; urgency=low
 
  -- Santiago Vila <sanvila@debian.org>  Sun, 19 Aug 2007 19:15:30 +0200
 
-base-files (4.0.0ubuntu6) hardy; urgency=low
-
-  * Update for Hardy: etc/{lsb-release,issue,issue.net}.
-
- -- Matthias Klose <doko@ubuntu.com>  Fri, 19 Oct 2007 19:24:18 +0000
-
-base-files (4.0.0ubuntu5) gutsy; urgency=low
-
-  * Prepare for Gutsy release: etc/{lsb-release,issue,issue.net}.
-
- -- Martin Pitt <martin.pitt@ubuntu.com>  Mon, 08 Oct 2007 11:21:08 +0200
-
-base-files (4.0.0ubuntu4) gutsy; urgency=low
-
-  * Trigger rebuild for hppa.
-
- -- LaMont Jones <lamont@ubuntu.com>  Fri, 28 Sep 2007 10:22:50 -0600
-
-base-files (4.0.0ubuntu3) gutsy; urgency=low
-
-  * Added version 3 of the LGPL license, taken from
-    http://www.gnu.org/licenses/lgpl-3.0.txt
-    (LP: #126565)
-
- -- Mario Limonciello <superm1@ubuntu.com>  Tue, 17 Jul 2007 09:52:08 -0500
-
-base-files (4.0.0ubuntu2) gutsy; urgency=low
-
-  * Added version 3 of the GPL license, taken from
-    http://www.gnu.org/licenses/gpl-3.0.txt (Siegfried-Angel Gevatter Pujals).
-    Closes: LP #123139.
-
- -- Matthias Klose <doko@ubuntu.com>  Tue, 03 Jul 2007 17:25:11 +0200
-
-base-files (4.0.0ubuntu1) gutsy; urgency=low
-
-  * Resynchronise with Debian (LP: #27924). Remaining changes:
-    - Branding changes.
-    - Add /etc/lsb-release file.
-    - Add lsb-release-udeb package.
-    - Record md5sums of unmodified /etc/profile versions so that we can
-      upgrade it automatically.
-    - Various bashrc extensions.
-    - Restore order line in /etc/host.conf with a comment.
-    - Add default /etc/networks file.
-
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 15 May 2007 17:10:18 +0100
-
 base-files (4.0.0) unstable; urgency=low
 
   * Added GFDL-1.2 from ftp://ftp.gnu.org/gnu/Licenses/COPYING.DOC-1.2
     to common-licenses, following policy (Closes: #420599).
 
  -- Santiago Vila <sanvila@debian.org>  Tue, 24 Apr 2007 09:39:36 +0200
-
-base-files (4.0ubuntu1) gutsy; urgency=low
-
-  * Resynchronise with Debian. Remaining changes:
-    - Branding changes.
-    - Add /etc/lsb-release file.
-    - Add lsb-release-udeb package.
-    - Record md5sums of unmodified /etc/profile versions so that we can
-      upgrade it automatically.
-    - Various bashrc extensions.
-    - Restore order line in /etc/host.conf with a comment.
-    - Add default /etc/networks file.
-  * /etc/issue, /etc/issue.net, /etc/lsb-release: Welcome to Gutsy!
-
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 20 Apr 2007 15:03:56 +0100
 
 base-files (4.0) unstable; urgency=low
 
@@ -1006,27 +540,6 @@ base-files (4.0) unstable; urgency=low
 
  -- Santiago Vila <sanvila@debian.org>  Tue,  3 Apr 2007 11:45:30 +0200
 
-base-files (4ubuntu2) feisty; urgency=low
-
-  * Feisty is about to release, so change codenames to version numbers in
-    /etc/issue{,.net} and the lsb_release output.
-
- -- Tollef Fog Heen <tfheen@ubuntu.com>  Thu, 12 Apr 2007 08:04:33 +0200
-
-base-files (4ubuntu1) feisty; urgency=low
-
-  * Resynchronise with Debian. Remaining changes:
-    - Branding changes.
-    - Add /etc/lsb-release file.
-    - Add lsb-release-udeb package.
-    - Record md5sums of unmodified /etc/profile versions so that we can
-      upgrade it automatically.
-    - Various bashrc extensions.
-    - Restore order line in /etc/host.conf with a comment.
-    - Add default /etc/networks file.
-
- -- Colin Watson <cjwatson@ubuntu.com>  Wed, 20 Dec 2006 15:54:41 +0000
-
 base-files (4) unstable; urgency=low
 
   * Changed issue, issue.net and debian_version to read "4.0".
@@ -1034,26 +547,6 @@ base-files (4) unstable; urgency=low
     as this is no longer needed by the X packages in etch (Closes: #388586).
 
  -- Santiago Vila <sanvila@debian.org>  Sat, 28 Oct 2006 15:44:00 +0200
-
-base-files (3.1.16ubuntu2) feisty; urgency=low
-
-  * Add share/networks: Default networks file with a small explanation and
-    'link-local 169.254.0.0'. (See https://wiki.ubuntu.com/ZeroConfNetworking
-    spec).
-  * debian/postinst: Install that file as /etc/networks if it does not exist
-    yet, on both new installations and upgrades.
-
- -- Martin Pitt <martin.pitt@ubuntu.com>  Mon, 27 Nov 2006 12:56:59 +0100
-
-base-files (3.1.16ubuntu1) feisty; urgency=low
-
-  * Resynchronise with Debian.
-  * /etc/issue, /etc/issue.net, /etc/lsb-release: Welcome to Feisty!
-  * /etc/host.conf: Restore order line with a comment that it is not used by
-    current libc, since removing it breaks old statically linked binaries
-    (see Debian bug #354115).
-
- -- Colin Watson <cjwatson@ubuntu.com>  Fri, 27 Oct 2006 11:04:47 +0100
 
 base-files (3.1.16) unstable; urgency=low
 
@@ -1078,25 +571,6 @@ base-files (3.1.14) unstable; urgency=low
   * Updated GPL-2 from ftp://ftp.gnu.org/gnu/Licenses (Closes: #380067).
 
  -- Santiago Vila <sanvila@debian.org>  Mon,  7 Aug 2006 19:21:54 +0200
-
-base-files (3.1.13ubuntu2) edgy; urgency=low
-
-  * /etc/lsb-release, /etc/issue, /etc/issue.net: Ubuntu 6.10.
-
- -- Tollef Fog Heen <tfheen@ubuntu.com>  Thu, 19 Oct 2006 10:16:59 +0200
-
-base-files (3.1.13ubuntu1) edgy; urgency=low
-
-  * Merge from debian unstable; remaining changes:
-    - branding changes,
-    - /etc/lsb-release file,
-    - lsb-release-udeb package,
-    - profile md5sum checking,
-    - extended bashrc.
-
-  * Fix missing space from share/profile so the md5sum matches.
-
- -- Scott James Remnant <scott@ubuntu.com>  Mon,  3 Jul 2006 17:17:41 +0100
 
 base-files (3.1.13) unstable; urgency=low
 
@@ -1125,78 +599,6 @@ base-files (3.1.10) unstable; urgency=medium
   * Updated default /etc/adjtime to current year.
 
  -- Santiago Vila <sanvila@debian.org>  Thu,  9 Feb 2006 18:41:22 +0100
-
-base-files (3.1.9ubuntu9) edgy; urgency=low
-
-  * And due to the changes in the last upload, we need to depend on a
-    libc6 new enough that we get /lib64 created BEFORE we remove our
-    copy, so dpkg doesn't suddenly stop working, mid-unpack.
-
- -- Adam Conrad <adconrad@ubuntu.com>  Thu,  8 Jun 2006 23:31:35 +1000
-
-base-files (3.1.9ubuntu8) edgy; urgency=low
-
-  * /etc/{lsb-release,issue,issue.net}: Welcome to edgy!
-  * Stop shipping /usr/lib64 and /lib64 symlinks, moved to libc6.
-  * Drop /usr/X11R6/lib64 as a final step toward X11R7 nirvana.
-
- -- Adam Conrad <adconrad@ubuntu.com>  Thu,  8 Jun 2006 19:34:02 +1000
-
-base-files (3.1.9ubuntu7) dapper; urgency=low
-
-  * /etc/lsb-release: Revert DISTRIB_RELEASE to 6.06; code relies on this
-    and it's too late to change it.
-
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 22 May 2006 09:44:40 +0100
-
-base-files (3.1.9ubuntu6) dapper; urgency=low
-
-  * /etc/lsb-release, /etc/issue, /etc/issue.net: s/6.06LTS/6.06 LTS/ for
-    everything except the LSB DISTRIB_RELEASE, which is a version number.
-
- -- Adam Conrad <adconrad@ubuntu.com>  Mon, 22 May 2006 09:24:28 +1000
-
-base-files (3.1.9ubuntu5) dapper; urgency=low
-
-  * /etc/lsb-release, /etc/issue, /etc/issue.net: Ubuntu 6.06LTS
-
- -- Matt Zimmerman <mdz@ubuntu.com>  Sun, 21 May 2006 10:54:36 -0700
-
-base-files (3.1.9ubuntu4) dapper; urgency=low
-
-  * /etc/lsb-release, /etc/issue, /etc/issue.net: Change Dapper version
-    number to 6.06 (closes: Malone #36820).
-
- -- Colin Watson <cjwatson@ubuntu.com>  Mon, 27 Mar 2006 10:17:18 +0100
-
-base-files (3.1.9ubuntu3) dapper; urgency=low
-
-  * Implement OneTruePathSpec:
-  * share/profile: Remove PATH setting.
-  * debian/control: Add dependency libpam-modules (>= 0.79-3ubuntu3) so that
-    the user does not end up without any $PATH at all.
-  * Add share/profile.md5sums: Record the md5sums of unmodified /etc/profile
-    of warty, hoary, breezy, current dapper, and this new version for dapper.
-  * debian/postinst: If /etc/profile matches one of the recorded md5sums,
-    replace it with the current version on upgrades.
-  * debian/rules, clean rule: Automatically update share/profile.md5sums with
-    the current md5sum of share/profile.
-
- -- Martin Pitt <martin.pitt@ubuntu.com>  Wed, 18 Jan 2006 11:32:32 +0100
-
-base-files (3.1.9ubuntu2) dapper; urgency=low
-
-  * Supply /etc/lsb-release and lsb-release-udeb, moved from the lsb-release
-    package.
-
- -- Colin Watson <cjwatson@ubuntu.com>  Wed,  9 Nov 2005 15:43:25 -0500
-
-base-files (3.1.9ubuntu1) dapper; urgency=low
-
-  * Resynchronise with Debian.
-  * /etc/issue, /etc/issue.net: Welcome to Dapper!
-
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 25 Oct 2005 11:49:43 +0100
 
 base-files (3.1.9) unstable; urgency=low
 
@@ -1228,31 +630,6 @@ base-files (3.1.6) unstable; urgency=low
 
  -- Santiago Vila <sanvila@debian.org>  Tue, 12 Jul 2005 17:29:48 +0200
 
-base-files (3.1.5ubuntu4) breezy; urgency=low
-
-  * Breezy's about to release, so drop "Development Branch" from /etc/issue
-    and /etc/issue.net.
-
- -- Colin Watson <cjwatson@ubuntu.com>  Wed,  5 Oct 2005 10:08:47 +0100
-
-base-files (3.1.5ubuntu3) breezy; urgency=low
-
-  * inputrc: Remove trailing whitespace.
-
- -- Matthias Klose <doko@ubuntu.com>  Mon, 12 Sep 2005 12:20:50 +0000
-
-base-files (3.1.5ubuntu2) breezy; urgency=low
-
-  * /root/.bashrc: sync with bash skeleton file.
-
- -- Matthias Klose <doko@ubuntu.com>  Mon,  5 Sep 2005 18:30:12 +0200
-
-base-files (3.1.5ubuntu1) breezy; urgency=low
-
-  * Resynchronise with Debian.
-
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 19 Jul 2005 18:51:32 +0100
-
 base-files (3.1.5) unstable; urgency=medium
 
   * Updated GPL-2 and LGPL-2.1 from ftp://ftp.gnu.org/gnu/Licenses again.
@@ -1276,13 +653,6 @@ base-files (3.1.3) unstable; urgency=low
 
  -- Santiago Vila <sanvila@debian.org>  Mon,  6 Jun 2005 19:32:20 +0200
 
-base-files (3.1.2ubuntu1) breezy; urgency=low
-
-  * Resynchronise with Debian.
-  * /etc/issue, /etc/issue.net: Welcome to Breezy!
-
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 14 Apr 2005 09:45:02 +0100
-
 base-files (3.1.2) unstable; urgency=low
 
   * Changed example line in default /root/.bashrc from eval `dircolors` to
@@ -1299,30 +669,6 @@ base-files (3.1.1) unstable; urgency=low
 
  -- Santiago Vila <sanvila@debian.org>  Tue, 14 Dec 2004 19:06:00 +0100
 
-base-files (3.1.0ubuntu3) hoary; urgency=low
-
-  * Hoary's about to release, so drop "Development Branch" from /etc/issue
-    and /etc/issue.net.
-
- -- Colin Watson <cjwatson@ubuntu.com>  Thu, 31 Mar 2005 19:27:50 +0100
-
-base-files (3.1.0ubuntu2) hoary; urgency=low
-
-  * debian/postinst: Do not install /usr/local and subdirectories with "staff"
-    group writeability. This group is essentially root-equivalent, but there
-    are cases where somebody can become any user but root (like NFS).
-  * debian/rules: Do not install /home as root:staff, it makes no sense.
-  * debian/2775-dirs: Remove "home".
-  * Ubuntu bug #7449
-
- -- Martin Pitt <martin.pitt@ubuntu.com>  Fri, 11 Mar 2005 11:30:07 +0100
-
-base-files (3.1.0ubuntu1) hoary; urgency=low
-
-  * Resynchronise with Debian.
-
- -- Colin Watson <cjwatson@canonical.com>  Wed, 17 Nov 2004 12:35:43 +0000
-
 base-files (3.1.0) unstable; urgency=low
 
   * Moved PATH definition for root from the default /root/.profile to the
@@ -1333,63 +679,11 @@ base-files (3.1.0) unstable; urgency=low
 
  -- Santiago Vila <sanvila@debian.org>  Wed, 10 Nov 2004 17:32:00 +0100
 
-base-files (3.1ubuntu2) hoary; urgency=low
-
-  * /etc/inputrc: Enable some key bindings by default (closes: #2525).
-
- -- Matthias Klose <m@klose.in-berlin.de>  Wed, 17 Nov 2004 00:46:24 +0000
-
-base-files (3.1ubuntu1) hoary; urgency=low
-
-  * Resynchronise with Debian.
-  * /etc/issue, /etc/issue.net: Welcome to Hoary!
-
- -- Colin Watson <cjwatson@canonical.com>  Fri, 29 Oct 2004 15:38:49 +0100
-
 base-files (3.1) unstable; urgency=high
 
   * Changed issue, issue.net and debian_version to read "3.1".
 
  -- Santiago Vila <sanvila@debian.org>  Mon, 26 Jul 2004 20:25:32 +0200
-
-base-files (3.0.16ubuntu6) warty; urgency=low
-
-  * /etc/profile: source /etc/bash.bashrc for the bash case.
-  * /root/.profile: only source /root/.bashrc for the bash case.
-  * /root/.bashrc, /root/.profile, /etc/bash.bashrc: sync with bash
-    skeleton files.
-
- -- Matthias Klose <m@klose.in-berlin.de>  Tue, 21 Sep 2004 18:51:00 +0200
-
-base-files (3.0.16ubuntu5) warty; urgency=low
-
-  * etc/profile: Add sbin directories to default PATH
-
- -- Matt Zimmerman <mdz@canonical.com>  Wed,  8 Sep 2004 19:04:58 -0700
-
-base-files (3.0.16ubuntu4) warty; urgency=low
-
-  * share/dot.bashrc: color ls and (optional) color prompt for root
-
- -- Nathaniel McCallum <npmccallum@gentoo.org>  Tue, 24 Aug 2004 09:49:29 -0400
-
-base-files (3.0.16ubuntu3) warty; urgency=low
-
-  * etc/motd, etc/issue, etc/issue.net, share/info.dir: Ubuntu branding.
-
- -- Colin Watson <cjwatson@flatline.org.uk>  Mon, 23 Aug 2004 23:50:03 +0100
-
-base-files (3.0.16ubuntu2) warty; urgency=low
-
-  * Only deliver said links on amd64.
-
- -- LaMont Jones <lamont@mmjgroup.com>  Tue, 13 Jul 2004 22:53:11 +0000
-
-base-files (3.0.16ubuntu1) unstable; urgency=low
-
-  * Added lib64 symlinks for the amd64.  From debian-amd64.
-
- -- LaMont Jones <lamont@mmjgroup.com>  Tue, 13 Jul 2004 21:31:10 +0100
 
 base-files (3.0.16) unstable; urgency=low
 

@@ -114,13 +114,6 @@ if [ ! -f /usr/info/dir ] && [ ! -f /usr/share/info/dir ]; then
   chmod 644 /usr/share/info/dir
 fi
 
-# Establish a fresh MOTD on package upgrade, ensures that the symlink is not broken
-[ -d "/etc/update-motd.d" ] && run-parts --lsbsysinit /etc/update-motd.d > /var/run/motd || true
-
-if [ ! -e "/etc/motd" ]; then
-  ln -sf /var/run/motd /etc/motd
-fi
-
 if [ "$1" = "configure" ] && [ "$2" != "" ]; then
   update_to_current_default profile
   update_to_current_default nsswitch.conf
@@ -128,3 +121,5 @@ if [ "$1" = "configure" ] && [ "$2" != "" ]; then
     install_directory mnt 755 root
   fi
 fi
+
+dpkg-maintscript-helper rm_conffile /etc/update-motd.d/99-footer 8+deb8u7pexip1~ -- "$@"

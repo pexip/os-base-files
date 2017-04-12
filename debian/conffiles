@@ -5,5 +5,4 @@
 /etc/issue
 /etc/issue.net
 /etc/lsb-release
-/etc/os-release
 /etc/update-motd.d/00-header

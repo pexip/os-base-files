@@ -1,3 +1,15 @@
+base-files (8+deb8u8pexip1) pexip; urgency=low
+
+  * New upstream release
+
+ -- John-Mark Bell <jmb@pexip.com>  Tue, 09 May 2017 14:23:18 +0100
+
+base-files (8+deb8u8) stable; urgency=low
+
+  * Changed /etc/debian_version to 8.8, for Debian 8.8 point release.
+
+ -- Santiago Vila <sanvila@debian.org>  Thu, 20 Apr 2017 23:42:50 +0200
+
 base-files (8+deb8u7pexip1) pexip; urgency=low
 
   * Migrate to Jessie

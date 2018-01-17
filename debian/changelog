@@ -1,3 +1,9 @@
+base-files (8+deb8u9pexip2) pexip; urgency=low
+
+  * Fix typo in /etc/os-release
+
+ -- John-Mark Bell <jmb@pexip.com>  Wed, 17 Jan 2018 11:43:33 +0000
+
 base-files (8+deb8u9pexip1) pexip; urgency=low
 
   * New upstream release

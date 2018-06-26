@@ -1,3 +1,9 @@
+base-files (9.9+deb9u5) stretch; urgency=medium
+
+  * Change /etc/debian_version to 9.5, for Debian 9.5 point release.
+
+ -- Santiago Vila <sanvila@debian.org>  Tue, 26 Jun 2018 14:03:08 +0200
+
 base-files (9.9+deb9u4) stretch; urgency=medium
 
   * Change /etc/debian_version to 9.4, for Debian 9.4 point release.

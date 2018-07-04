@@ -1,3 +1,15 @@
+base-files (8+deb8u11pexip1) pexip; urgency=low
+
+  * New upstream release
+
+ -- John-Mark Bell <jmb@pexip.com>  Wed, 04 Jul 2018 11:54:04 +0100
+
+base-files (8+deb8u11) oldstable; urgency=medium
+
+  * Changed /etc/debian_version to 8.11, for Debian 8.11 point release.
+
+ -- Santiago Vila <sanvila@debian.org>  Thu, 14 Jun 2018 15:00:02 +0200
+
 base-files (8+deb8u10pexip1) pexip; urgency=low
 
   * New upstream release

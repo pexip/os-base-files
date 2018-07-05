@@ -4,7 +4,7 @@ Priority: required
 Maintainer: Pexip AS <packaging@pexip.com>
 XSBC-Pexip-Original-Maintainer: Santiago Vila <sanvila@debian.org>
 Standards-Version: 3.9.5
-XS-Pexip-Upstream: http://ftp.debian.org/debian/ jessie
+XS-Pexip-Upstream: http://ftp.debian.org/debian/ stretch
 
 Package: base-files
 Provides: base

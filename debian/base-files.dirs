@@ -3,6 +3,7 @@ boot
 dev
 etc
 etc/default
+etc/dpkg/origins
 etc/profile.d
 etc/skel
 etc/update-motd.d
@@ -22,6 +23,7 @@ usr/include
 usr/lib
 usr/sbin
 usr/share
+usr/share/base-files
 usr/share/common-licenses
 usr/share/dict
 usr/share/info

@@ -3,13 +3,15 @@ Section: admin
 Priority: required
 Maintainer: Pexip AS <packaging@pexip.com>
 XSBC-Pexip-Original-Maintainer: Santiago Vila <sanvila@debian.org>
-Standards-Version: 3.9.5
+Standards-Version: 3.9.8
+Build-Depends: debhelper (>= 9)
 XS-Pexip-Upstream: http://ftp.debian.org/debian/ stretch
 
 Package: base-files
 Provides: base
 Architecture: any
 Pre-Depends: awk
+Depends: ${misc:Depends}
 Essential: yes
 Priority: required
 Replaces: base, miscutils, dpkg (<= 1.15.0)

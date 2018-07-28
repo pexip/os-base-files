@@ -1,3 +1,15 @@
+base-files (9.9+deb9u5pexip1) pexip; urgency=low
+
+  * New upstream release
+
+ -- John-Mark Bell <jmb@pexip.com>  Sat, 28 Jul 2018 22:27:26 +0100
+
+base-files (9.9+deb9u5) stretch; urgency=medium
+
+  * Change /etc/debian_version to 9.5, for Debian 9.5 point release.
+
+ -- Santiago Vila <sanvila@debian.org>  Tue, 26 Jun 2018 14:03:08 +0200
+
 base-files (9.9+deb9u4pexip1) pexip; urgency=low
 
   * Migrate to Stretch

@@ -1,3 +1,9 @@
+base-files (9.9+deb9u12) stretch; urgency=medium
+
+  * Change /etc/debian_version to 9.12, for Debian 9.12 point release.
+
+ -- Santiago Vila <sanvila@debian.org>  Sat, 01 Feb 2020 18:09:04 +0100
+
 base-files (9.9+deb9u11) stretch; urgency=emergency
 
   * Non-maintainer upload.

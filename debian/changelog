@@ -1,77 +1,69 @@
-base-files (9.9+deb9u12) stretch; urgency=medium
+base-files (10.3+deb10u3) buster; urgency=medium
 
-  * Change /etc/debian_version to 9.12, for Debian 9.12 point release.
+  * Change /etc/debian_version to 10.3, for Debian 10.3 point release.
 
- -- Santiago Vila <sanvila@debian.org>  Sat, 01 Feb 2020 18:09:04 +0100
+ -- Santiago Vila <sanvila@debian.org>  Sat, 01 Feb 2020 18:09:26 +0100
 
-base-files (9.9+deb9u11) stretch; urgency=emergency
+base-files (10.3+deb10u2) buster; urgency=medium
 
-  * Non-maintainer upload.
-  * Change /etc/debian_version to 9.11, for Debian 9.11 point release.
+  * Change /etc/debian_version to 10.2, for Debian 10.2 point release.
 
- -- Julien Cristau <jcristau@debian.org>  Sun, 08 Sep 2019 12:51:39 +0200
+ -- Santiago Vila <sanvila@debian.org>  Sun, 10 Nov 2019 13:17:26 +0100
 
-base-files (9.9+deb9u10) stretch; urgency=medium
+base-files (10.3+deb10u1) buster; urgency=medium
 
-  * Change /etc/debian_version to 9.10, for Debian 9.10 point release.
-  * Add VERSION_CODENAME to os-release. Closes: #829245. Please note
-    that this is only for stable releases.
+  * Change /etc/debian_version to 10.1, for Debian 10.1 point release.
 
- -- Santiago Vila <sanvila@debian.org>  Fri, 30 Aug 2019 14:27:24 +0200
+ -- Santiago Vila <sanvila@debian.org>  Fri, 30 Aug 2019 14:31:26 +0200
 
-base-files (9.9+deb9u9) stretch; urgency=medium
+base-files (10.3) unstable; urgency=medium
 
-  * Change /etc/debian_version to 9.9, for Debian 9.9 point release.
+  * Add Breaks: debian-security-support (<< 2019.04.25). Closes: #928172.
+    This is the first version of debian-security-support which does not break
+    when /etc/debian_version contains a string in the form "10.x".
 
- -- Santiago Vila <sanvila@debian.org>  Thu, 28 Mar 2019 10:12:44 +0100
+ -- Santiago Vila <sanvila@debian.org>  Mon, 13 May 2019 22:25:32 +0200
 
-base-files (9.9+deb9u8) stretch; urgency=medium
+base-files (10.2) unstable; urgency=medium
 
-  * Change /etc/debian_version to 9.8, for Debian 9.8 point release.
+  * Release candidate for buster as stable:
+  - Use "10" as version in /etc/issue and /etc/issue.net.
+    (never expected to change after buster is released)
+  - Use 10.0 as version in /etc/debian_version.
+    (expected to change at every point release)
+  - Change PRETTY_NAME in /usr/lib/os-release, adding 10 as version number
+    and "(buster)" as codename. Add also VERSION_ID and VERSION.
+    (never expected to change)
+  - Add VERSION_CODENAME to os-release. Closes: #829245. This is optional
+    according to the specs but some people find it useful. Please note that
+    for now this is only expected to be present on stable releases.
+  - Update README (buster -> bullseye).
 
- -- Santiago Vila <sanvila@debian.org>  Sun, 03 Feb 2019 14:01:06 +0100
+ -- Santiago Vila <sanvila@debian.org>  Fri, 19 Apr 2019 13:05:00 +0200
 
-base-files (9.9+deb9u7) stretch; urgency=medium
+base-files (10.1) unstable; urgency=medium
 
-  * Change /etc/debian_version to 9.7, for Debian 9.7 point release.
+  * Add CC0-1.0 to common-licenses. Closes: #859649, #882628.
+    Source: https://creativecommons.org/publicdomain/zero/1.0/legalcode.txt.
+  * Simplify debian/rules a little bit by dropping install target
+    and using override_dh_auto_install instead. Closes: #886901.
+    Package should now build from source again in every supported way.
+    Thanks to Daniel Schepler for the report and to Niels Thykier for
+    clarifying the true nature of this bug.
+  * Do not create /etc/staff-group-for-usr-local on new installs anymore.
+    Do not create it on upgrades either, as we don't support upgrades
+    skipping stable releases, and even less skipping several releases.
+  * Standards-Version: 4.1.3.
 
- -- Santiago Vila <sanvila@debian.org>  Tue, 22 Jan 2019 14:47:28 +0100
+ -- Santiago Vila <sanvila@debian.org>  Sun, 14 Jan 2018 00:36:34 +0100
 
-base-files (9.9+deb9u6) stretch; urgency=medium
+base-files (10) unstable; urgency=medium
 
-  * Change /etc/debian_version to 9.6, for Debian 9.6 point release.
+  * Change issue, issue.net, debian_version and os-release to read
+    "buster/sid", and drop VERSION and VERSION_ID from os-release.
+  * Fix typo in changelog for version 9.
 
- -- Santiago Vila <sanvila@debian.org>  Sat, 20 Oct 2018 12:40:06 +0200
-
-base-files (9.9+deb9u5) stretch; urgency=medium
-
-  * Change /etc/debian_version to 9.5, for Debian 9.5 point release.
-
- -- Santiago Vila <sanvila@debian.org>  Tue, 26 Jun 2018 14:03:08 +0200
-
-base-files (9.9+deb9u4) stretch; urgency=medium
-
-  * Change /etc/debian_version to 9.4, for Debian 9.4 point release.
-
- -- Santiago Vila <sanvila@debian.org>  Sat, 24 Feb 2018 00:23:00 +0100
-
-base-files (9.9+deb9u3) stretch; urgency=medium
-
-  * Change /etc/debian_version to 9.3, for Debian 9.3 point release.
-
- -- Santiago Vila <sanvila@debian.org>  Sun, 19 Nov 2017 16:25:10 +0100
-
-base-files (9.9+deb9u2) stretch; urgency=medium
-
-  * Change /etc/debian_version to 9.2, for Debian 9.2 point release.
-
- -- Adam D. Barratt <adam@adam-barratt.org.uk>  Sat, 07 Oct 2017 13:17:53 +0100
-
-base-files (9.9+deb9u1) stable; urgency=low
-
-  * Change /etc/debian_version to 9.1, for Debian 9.1 point release.
-
- -- Santiago Vila <sanvila@debian.org>  Thu, 13 Jul 2017 15:04:04 +0200
+ -- Santiago Vila <sanvila@debian.org>  Mon, 26 Jun 2017 00:19:42 +0200
 
 base-files (9.9) unstable; urgency=medium
 
@@ -168,7 +160,7 @@ base-files (9) unstable; urgency=medium
 
   * Changed issue, issue.net, debian_version and os-release to read
     "stretch/sid", and dropped VERSION and VERSION_ID from os-release.
-  * Changed HOME_URL and SUPPORT_URL is os-release from http to https,
+  * Changed HOME_URL and SUPPORT_URL in os-release from http to https,
     as those are the preferred URLs now.
 
  -- Santiago Vila <sanvila@debian.org>  Thu, 30 Apr 2015 12:00:50 +0200

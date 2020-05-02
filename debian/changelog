@@ -1,3 +1,9 @@
+base-files (10.3+deb10u4) buster; urgency=medium
+
+  * Change /etc/debian_version to 10.4, for Debian 10.4 point release.
+
+ -- Santiago Vila <sanvila@debian.org>  Sat, 02 May 2020 18:39:00 +0200
+
 base-files (10.3+deb10u3) buster; urgency=medium
 
   * Change /etc/debian_version to 10.3, for Debian 10.3 point release.

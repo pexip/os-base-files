@@ -1,6 +1,7 @@
 base-files (10.3+deb10u3pexip1) pexip; urgency=medium
 
   * Migrate to Buster
+  * Retire /etc/lsb-release
 
  -- Vincent Sanders <vince@pexip.com>  Thu, 27 Feb 2020 22:02:12 +0000
 

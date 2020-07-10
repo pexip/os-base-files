@@ -1,27 +1,14 @@
-base-files (10.3+deb10u4pexip2) pexip; urgency=medium
+base-files (10.3+deb10u5) buster; urgency=medium
 
-  * Rebuild in buster environment
+  * Change /etc/debian_version to 10.5, for Debian 10.5 point release.
 
- -- Steve McIntyre <steve.mcintyre@pexip.com>  Wed, 15 Jul 2020 17:02:58 +0000
-
-base-files (10.3+deb10u4pexip1) pexip; urgency=low
-
-  * New upstream release
-
- -- Vincent Sanders <vince@pexip.com>  Sat, 06 Jun 2020 12:20:43 +0000
+ -- Santiago Vila <sanvila@debian.org>  Fri, 10 Jul 2020 23:04:00 +0200
 
 base-files (10.3+deb10u4) buster; urgency=medium
 
   * Change /etc/debian_version to 10.4, for Debian 10.4 point release.
 
  -- Santiago Vila <sanvila@debian.org>  Sat, 02 May 2020 18:39:00 +0200
-
-base-files (10.3+deb10u3pexip1) pexip; urgency=medium
-
-  * Migrate to Buster
-  * Retire /etc/lsb-release
-
- -- Vincent Sanders <vince@pexip.com>  Thu, 27 Feb 2020 22:02:12 +0000
 
 base-files (10.3+deb10u3) buster; urgency=medium
 
@@ -89,48 +76,6 @@ base-files (10) unstable; urgency=medium
   * Fix typo in changelog for version 9.
 
  -- Santiago Vila <sanvila@debian.org>  Mon, 26 Jun 2017 00:19:42 +0200
-
-base-files (9.9+deb9u12pexip1) pexip; urgency=low
-
-  * New upstream release
-
- -- John-Mark Bell <jmb@pexip.com>  Mon, 10 Feb 2020 10:16:25 +0000
-
-base-files (9.9+deb9u11pexip1) pexip; urgency=low
-
-  * New upstream release
-
- -- Vincent Sanders <vince@pexip.com>  Wed, 13 Nov 2019 14:21:43 +0000
-
-base-files (9.9+deb9u9pexip1) pexip; urgency=low
-
-  * New upstream release
-
- -- John-Mark Bell <jmb@pexip.com>  Fri, 24 May 2019 12:28:37 +0100
-
-base-files (9.9+deb9u8pexip1) pexip; urgency=low
-
-  * New upstream release
-
- -- Vincent Sanders <vince@pexip.com>  Wed, 20 Feb 2019 14:40:19 +0000
-
-base-files (9.9+deb9u6pexip1) pexip; urgency=low
-
-  * New upstream release
-
- -- John-Mark Bell <jmb@pexip.com>  Mon, 12 Nov 2018 18:48:59 +0000
-
-base-files (9.9+deb9u5pexip1) pexip; urgency=low
-
-  * New upstream release
-
- -- John-Mark Bell <jmb@pexip.com>  Sat, 28 Jul 2018 22:27:26 +0100
-
-base-files (9.9+deb9u4pexip1) pexip; urgency=low
-
-  * Migrate to Stretch
-
- -- John-Mark Bell <jmb@pexip.com>  Tue, 10 Jul 2018 16:44:10 +0100
 
 base-files (9.9) unstable; urgency=medium
 
@@ -231,12 +176,6 @@ base-files (9) unstable; urgency=medium
     as those are the preferred URLs now.
 
  -- Santiago Vila <sanvila@debian.org>  Thu, 30 Apr 2015 12:00:50 +0200
-
-base-files (8+deb8u7pexip1) pexip; urgency=low
-
-  * Migrate to Jessie
-
- -- John-Mark Bell <jmb@pexip.com>  Mon, 20 Feb 2017 17:26:52 +0000
 
 base-files (8) unstable; urgency=low
 

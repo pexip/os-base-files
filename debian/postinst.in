@@ -54,7 +54,7 @@ if [ "$1" = "configure" ] && [ "$2" = "" ]; then
   install_from_default dot.profile   /root/.profile
   install_from_default dot.bashrc    /root/.bashrc
   install_from_default profile       /etc/profile
-  install_from_default networks      /etc/networks
+  install_from_default motd          /etc/motd
   install_directory mnt       755 root
   install_directory srv       755 root
   install_directory opt       755 root
@@ -120,6 +120,3 @@ if [ "$1" = "configure" ] && [ "$2" != "" ]; then
     install_directory mnt 755 root
   fi
 fi
-
-dpkg-maintscript-helper rm_conffile /etc/update-motd.d/99-footer 8+deb8u7pexip1~ -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/lsb-release -- "$@"

@@ -1,3 +1,15 @@
+base-files (10.3+deb10u6pexip1) pexip; urgency=medium
+
+  * New upstream release
+
+ -- Steve McIntyre <steve.mcintyre@pexip.com>  Wed, 30 Sep 2020 10:26:34 +0100
+
+base-files (10.3+deb10u6) buster; urgency=medium
+
+  * Change /etc/debian_version to 10.6, for Debian 10.6 point release.
+
+ -- Santiago Vila <sanvila@debian.org>  Sat, 19 Sep 2020 23:39:00 +0200
+
 base-files (10.3+deb10u5pexip1) pexip; urgency=medium
 
   * New upstream release

@@ -1,3 +1,15 @@
+base-files (10.3+deb10u7pexip2) pexip; urgency=medium
+
+  * Fix bugs causing problems with lsb_release (#22566). Belt *and*
+    braces:
+    + Fill in VERSION_CODENAME in /usr/lib/os-release
+    + *Always* make the /etc/dpkg/origins/default file point to our
+      pexip config, whether it was there before or not. We want this
+      to happen on all systems, including older ones that have been
+      upgraded.
+
+ -- Steve McIntyre <steve.mcintyre@pexip.com>  Wed, 20 Jan 2021 15:03:17 +0000
+
 base-files (10.3+deb10u7pexip1) pexip; urgency=medium
 
   * New upstream release

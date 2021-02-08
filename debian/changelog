@@ -1,8 +1,14 @@
+base-files (10.3+deb10u8pexip2) pexip; urgency=medium
+
+  * Fix the 10.3+deb10u8pexip1 changelog to use the right day. Sigh.
+
+ -- Steve McIntyre <steve.mcintyre@pexip.com>  Mon, 08 Feb 2021 17:14:22 +0000
+
 base-files (10.3+deb10u8pexip1) pexip; urgency=medium
 
   * New upstream release
 
- -- Steve McIntyre <steve.mcintyre@pexip.com>  Mon, 07 Feb 2021 12:16:43 +0000
+ -- Steve McIntyre <steve.mcintyre@pexip.com>  Mon, 08 Feb 2021 12:16:43 +0000
 
 base-files (10.3+deb10u8) buster; urgency=medium
 

@@ -1,3 +1,15 @@
+base-files (10.3+deb10u9pexip1) pexip; urgency=medium
+
+  * New upstream release
+
+ -- Steve McIntyre <steve.mcintyre@pexip.com>  Tue, 30 Mar 2021 15:35:08 +0100
+
+base-files (10.3+deb10u9) buster; urgency=medium
+
+  * Change /etc/debian_version to 10.9, for Debian 10.9 point release.
+
+ -- Santiago Vila <sanvila@debian.org>  Sat, 20 Mar 2021 00:44:00 +0100
+
 base-files (10.3+deb10u8pexip2) pexip; urgency=medium
 
   * Fix the 10.3+deb10u8pexip1 changelog to use the right day. Sigh.

@@ -1,3 +1,9 @@
+base-files (10.3+deb10u10) buster; urgency=medium
+
+  * Change /etc/debian_version to 10.10, for Debian 10.10 point release.
+
+ -- Santiago Vila <sanvila@debian.org>  Sun, 13 Jun 2021 12:30:00 +0200
+
 base-files (10.3+deb10u9pexip2) pexip; urgency=medium
 
   * Quote the ID_LIKE field for shell compatibility.

@@ -1,3 +1,9 @@
+base-files (10.3+deb10u10pexip1) pexip; urgency=medium
+
+  * New upstream release
+
+ -- Mark Hymers <mark.hymers@pexip.com>  Mon, 21 Jun 2021 14:02:10 +0100
+
 base-files (10.3+deb10u10) buster; urgency=medium
 
   * Change /etc/debian_version to 10.10, for Debian 10.10 point release.

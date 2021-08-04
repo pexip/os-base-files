@@ -1,3 +1,9 @@
+base-files (10.3+deb10u10pexip2) pexip; urgency=medium
+
+  * Force removal of old config file on upgrade
+
+ -- Huw Jones <huw@pexip.com>  Wed, 04 Aug 2021 12:14:23 +0100
+
 base-files (10.3+deb10u10pexip1) pexip; urgency=medium
 
   * New upstream release

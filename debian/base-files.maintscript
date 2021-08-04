@@ -1,0 +1,2 @@
+rm_conffile /etc/update-motd.d/99-footer 8+deb8u7pexip1~
+rm_conffile /etc/lsb-release 10.3+deb10u3pexip1~

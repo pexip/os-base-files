@@ -119,5 +119,4 @@ if [ "$1" = "configure" ] && [ "$2" != "" ]; then
   fi
 fi
 
-dpkg-maintscript-helper rm_conffile /etc/update-motd.d/99-footer 8+deb8u7pexip1~ -- "$@"
-dpkg-maintscript-helper rm_conffile /etc/lsb-release -- "$@"
+#DEBHELPER#

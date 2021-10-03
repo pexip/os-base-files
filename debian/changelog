@@ -1,3 +1,9 @@
+base-files (10.3+deb10u11) buster; urgency=medium
+
+  * Change /etc/debian_version to 10.11, for Debian 10.11 point release.
+
+ -- Santiago Vila <sanvila@debian.org>  Sun, 03 Oct 2021 11:00:00 +0200
+
 base-files (10.3+deb10u10) buster; urgency=medium
 
   * Change /etc/debian_version to 10.10, for Debian 10.10 point release.

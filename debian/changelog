@@ -1,74 +1,52 @@
-base-files (10.3+deb10u12) buster; urgency=medium
+base-files (11.1+deb11u3) bullseye; urgency=medium
 
-  * Change /etc/debian_version to 10.12, for Debian 10.12 point release.
+  * Change /etc/debian_version to 11.3, for Debian 11.3 point release.
 
- -- Santiago Vila <sanvila@debian.org>  Sat, 19 Mar 2022 14:44:00 +0100
+ -- Santiago Vila <sanvila@debian.org>  Sat, 19 Mar 2022 14:46:00 +0100
 
-base-files (10.3+deb10u11) buster; urgency=medium
+base-files (11.1+deb11u2) bullseye; urgency=medium
 
-  * Change /etc/debian_version to 10.11, for Debian 10.11 point release.
+  * Change /etc/debian_version to 11.2, for Debian 11.2 point release.
 
- -- Santiago Vila <sanvila@debian.org>  Sun, 03 Oct 2021 11:00:00 +0200
+ -- Santiago Vila <sanvila@debian.org>  Sat, 11 Dec 2021 18:25:00 +0100
 
-base-files (10.3+deb10u10) buster; urgency=medium
+base-files (11.1+deb11u1) bullseye; urgency=medium
 
-  * Change /etc/debian_version to 10.10, for Debian 10.10 point release.
+  * Change /etc/debian_version to 11.1, for Debian 11.1 point release.
 
- -- Santiago Vila <sanvila@debian.org>  Sun, 13 Jun 2021 12:30:00 +0200
+ -- Santiago Vila <sanvila@debian.org>  Sun, 03 Oct 2021 11:15:00 +0200
 
-base-files (10.3+deb10u9) buster; urgency=medium
+base-files (11.1) unstable; urgency=medium
 
-  * Change /etc/debian_version to 10.9, for Debian 10.9 point release.
+  * Use https where appropriate, namely, origins/debian (currently used)
+    and share/staff-group-for-usr-local (not anymore). Closes: #959470.
+  * Gracefully handle /usr/share/info not existing. Closes: #977113.
+  * Use $() instead of `` where appropriate, namely, the default files
+    for /etc/profile and /root/.bashrc. Closes: #982687.
+  * Update share/profile.md5sums as the default file has changed.
+  * Update build-dependency on debhelper.
+  * Release candidate for bullseye as stable:
+  - Use "11" as version in /etc/issue and /etc/issue.net.
+    (never expected to change after buster is released)
+  - Use 11.0 as version in /etc/debian_version.
+    (expected to change at every point release)
+  - Change PRETTY_NAME in /usr/lib/os-release, adding 11 as version number
+    and "(bullseye)" as codename. Add also VERSION_ID and VERSION.
+    (never expected to change)
+  - Add VERSION_CODENAME to os-release.
+    (only expected on stable releases)
+  - Update README (bullseye -> bookworm).
 
- -- Santiago Vila <sanvila@debian.org>  Sat, 20 Mar 2021 00:44:00 +0100
+ -- Santiago Vila <sanvila@debian.org>  Sat, 10 Apr 2021 22:15:00 +0200
 
-base-files (10.3+deb10u8) buster; urgency=medium
+base-files (11) unstable; urgency=medium
 
-  * Change /etc/debian_version to 10.8, for Debian 10.8 point release.
+  * Change issue, issue.net, debian_version and os-release to read
+    "bullseye/sid".
+  * Drop VERSION, VERSION_ID and CODENAME from os-release.
+  * Make "mesg n" silent in default /root/.profile. Closes: #930654.
 
- -- Santiago Vila <sanvila@debian.org>  Sat, 30 Jan 2021 18:37:00 +0100
-
-base-files (10.3+deb10u7) buster; urgency=medium
-
-  * Change /etc/debian_version to 10.7, for Debian 10.7 point release.
-
- -- Santiago Vila <sanvila@debian.org>  Sun, 22 Nov 2020 13:37:00 +0100
-
-base-files (10.3+deb10u6) buster; urgency=medium
-
-  * Change /etc/debian_version to 10.6, for Debian 10.6 point release.
-
- -- Santiago Vila <sanvila@debian.org>  Sat, 19 Sep 2020 23:39:00 +0200
-
-base-files (10.3+deb10u5) buster; urgency=medium
-
-  * Change /etc/debian_version to 10.5, for Debian 10.5 point release.
-
- -- Santiago Vila <sanvila@debian.org>  Fri, 10 Jul 2020 23:04:00 +0200
-
-base-files (10.3+deb10u4) buster; urgency=medium
-
-  * Change /etc/debian_version to 10.4, for Debian 10.4 point release.
-
- -- Santiago Vila <sanvila@debian.org>  Sat, 02 May 2020 18:39:00 +0200
-
-base-files (10.3+deb10u3) buster; urgency=medium
-
-  * Change /etc/debian_version to 10.3, for Debian 10.3 point release.
-
- -- Santiago Vila <sanvila@debian.org>  Sat, 01 Feb 2020 18:09:26 +0100
-
-base-files (10.3+deb10u2) buster; urgency=medium
-
-  * Change /etc/debian_version to 10.2, for Debian 10.2 point release.
-
- -- Santiago Vila <sanvila@debian.org>  Sun, 10 Nov 2019 13:17:26 +0100
-
-base-files (10.3+deb10u1) buster; urgency=medium
-
-  * Change /etc/debian_version to 10.1, for Debian 10.1 point release.
-
- -- Santiago Vila <sanvila@debian.org>  Fri, 30 Aug 2019 14:31:26 +0200
+ -- Santiago Vila <sanvila@debian.org>  Tue, 09 Jul 2019 12:05:50 +0200
 
 base-files (10.3) unstable; urgency=medium
 

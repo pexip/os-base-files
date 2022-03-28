@@ -1,3 +1,15 @@
+base-files (10.3+deb10u12pexip1) pexip; urgency=medium
+
+  * New upstream release
+
+ -- Steve McIntyre <steve.mcintyre@pexip.com>  Mon, 28 Mar 2022 12:52:45 +0100
+
+base-files (10.3+deb10u12) buster; urgency=medium
+
+  * Change /etc/debian_version to 10.12, for Debian 10.12 point release.
+
+ -- Santiago Vila <sanvila@debian.org>  Sat, 19 Mar 2022 14:44:00 +0100
+
 base-files (10.3+deb10u11pexip1) pexip; urgency=medium
 
   * New upstream release

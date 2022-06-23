@@ -1,6 +1,7 @@
 base-files (11.1+deb11u3pexip1) pexip; urgency=medium
 
   * Initial bullseye build
+  * Change to derive from Debian instead of Ubuntu.
 
  -- Mark Hymers <mark.hymers@pexip.com>  Thu, 02 Jun 2022 14:42:02 +0100
 

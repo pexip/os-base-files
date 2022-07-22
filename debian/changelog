@@ -1,3 +1,9 @@
+base-files (11.1+deb11u4pexip1) pexip-bullseye; urgency=medium
+
+  * Rebuild for PexOS
+
+ -- Mark Hymers <mark.hymers@pexip.com>  Fri, 22 Jul 2022 15:42:09 +0100
+
 base-files (11.1+deb11u4) bullseye; urgency=medium
 
   * Change /etc/debian_version to 11.4, for Debian 11.4 point release.

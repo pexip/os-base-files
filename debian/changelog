@@ -1,3 +1,9 @@
+base-files (11.1+deb11u4pexip2) pexip-bullseye; urgency=medium
+
+  * Bullseye rebuild for ARM64 inclusion
+
+ -- Mark Hymers <mark.hymers@pexip.com>  Mon, 05 Sep 2022 10:31:12 +0100
+
 base-files (11.1+deb11u4pexip1) pexip-bullseye; urgency=medium
 
   * Rebuild for PexOS

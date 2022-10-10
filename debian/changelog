@@ -1,3 +1,9 @@
+base-files (11.1+deb11u5) bullseye; urgency=medium
+
+  * Change /etc/debian_version to 11.5, for Debian 11.5 point release.
+
+ -- Santiago Vila <sanvila@debian.org>  Sat, 03 Sep 2022 14:10:00 +0200
+
 base-files (11.1+deb11u4pexip2) pexip-bullseye; urgency=medium
 
   * Bullseye rebuild for ARM64 inclusion

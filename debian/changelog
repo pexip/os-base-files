@@ -1,3 +1,9 @@
+base-files (11.1+deb11u5pexip1) pexip; urgency=medium
+
+  * New upstream release
+
+ -- Mark Hymers <mark.hymers@pexip.com>  Mon, 10 Oct 2022 16:06:33 +0100
+
 base-files (11.1+deb11u5) bullseye; urgency=medium
 
   * Change /etc/debian_version to 11.5, for Debian 11.5 point release.

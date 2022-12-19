@@ -1,3 +1,15 @@
+base-files (11.1+deb11u6pexip1) pexip; urgency=medium
+
+  * New upstream release
+
+ -- Steve McIntyre <steve.mcintyre@pexip.com>  Mon, 19 Dec 2022 11:54:44 +0000
+
+base-files (11.1+deb11u6) bullseye; urgency=medium
+
+  * Change /etc/debian_version to 11.6, for Debian 11.6 point release.
+
+ -- Santiago Vila <sanvila@debian.org>  Fri, 09 Dec 2022 20:15:00 +0100
+
 base-files (11.1+deb11u5pexip1) pexip; urgency=medium
 
   * New upstream release

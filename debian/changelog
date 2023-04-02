@@ -1,3 +1,9 @@
+base-files (11.1+deb11u7) bullseye; urgency=medium
+
+  * Change /etc/debian_version to 11.7, for Debian 11.7 point release.
+
+ -- Santiago Vila <sanvila@debian.org>  Sun, 02 Apr 2023 13:55:00 +0200
+
 base-files (11.1+deb11u6) bullseye; urgency=medium
 
   * Change /etc/debian_version to 11.6, for Debian 11.6 point release.

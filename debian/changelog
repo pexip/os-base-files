@@ -1,3 +1,9 @@
+base-files (11.1+deb11u8pexip2) pexip; urgency=medium
+
+  * Bump PexOS version
+
+ -- John-Mark Bell <jmb@pexip.com>  Fri, 27 Oct 2023 11:28:55 +0100
+
 base-files (11.1+deb11u8pexip1) pexip; urgency=medium
 
   * New upstream release

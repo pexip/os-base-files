@@ -1,3 +1,9 @@
+base-files (12.4+deb12u3) bookworm; urgency=medium
+
+  * Change /etc/debian_version to 12.3, for Debian 12.3 point release.
+
+ -- Santiago Vila <sanvila@debian.org>  Sat, 02 Dec 2023 23:34:00 +0100
+
 base-files (12.4+deb12u2) bookworm; urgency=medium
 
   * Change /etc/debian_version to 12.2, for Debian 12.2 point release.

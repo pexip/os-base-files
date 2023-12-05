@@ -52,11 +52,12 @@ update_to_current_default() {
   fi
 }
 
-if [ ! -e "$DPKG_ROOT/etc/dpkg/origins/default" ]; then
+# Do not check, we always want to ensure we have pexip as a default
+#if [ ! -e "$DPKG_ROOT/etc/dpkg/origins/default" ]; then
   if [ -e "$DPKG_ROOT/etc/dpkg/origins/#VENDORFILE#" ]; then
     ln -sf #VENDORFILE# "$DPKG_ROOT/etc/dpkg/origins/default"
   fi
-fi
+#fi
 
 if [ "$1" = "configure" ] && [ "$2" = "" ]; then
   install_from_default dot.profile   /root/.profile

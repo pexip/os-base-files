@@ -1,3 +1,9 @@
+base-files (12.4+deb12u4pexip1) pexip-bookworm; urgency=medium
+
+  * New upstream release.
+
+ -- Mark Hymers <mark.hymers@pexip.com>  Mon, 11 Dec 2023 16:01:49 +0000
+
 base-files (12.4+deb12u4) bookworm; urgency=medium
 
   * Change /etc/debian_version to 12.4, for Debian 12.4 point release.

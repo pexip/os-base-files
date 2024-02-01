@@ -1,3 +1,9 @@
+base-files (12.4+deb12u4+pexip24u2) pexip-bookworm; urgency=medium
+
+  * New versioning scheme
+
+ -- Mark Hymers <mark.hymers@pexip.com>  Thu, 01 Feb 2024 15:52:19 +0000
+
 base-files (12.4+deb12u4pexip1) pexip-bookworm; urgency=medium
 
   * New upstream release.

@@ -1,62 +1,75 @@
-base-files (12.4+deb12u10) bookworm; urgency=medium
+base-files (13.7) unstable; urgency=medium
 
-  * Change /etc/debian_version to 12.10, for Debian 12.10 point release.
+  * Make /var/local to be root:root and 755 by default on new installs.
+    On upgrades from Debian 12, the permissions of /var/local are kept,
+    which is what we want for backwards compatibility. Closes: #1039973.
+  * Raise Standards-Version to 4.7.2.
+  * Add debian/salsa-ci.yml.
 
- -- Santiago Vila <sanvila@debian.org>  Fri, 07 Mar 2025 18:30:00 +0100
+ -- Santiago Vila <sanvila@debian.org>  Tue, 04 Mar 2025 12:20:00 +0100
 
-base-files (12.4+deb12u9) bookworm; urgency=medium
+base-files (13.6) unstable; urgency=medium
 
-  * Change /etc/debian_version to 12.9, for Debian 12.9 point release.
+  * Change default dot.profile to not use mesg anymore. Closes: #1088011.
 
- -- Santiago Vila <sanvila@debian.org>  Tue, 31 Dec 2024 11:25:00 +0100
+ -- Santiago Vila <sanvila@debian.org>  Fri, 22 Nov 2024 15:40:00 +0100
 
-base-files (12.4+deb12u8) bookworm; urgency=medium
+base-files (13.5) unstable; urgency=medium
 
-  * Change /etc/debian_version to 12.8, for Debian 12.8 point release.
+  [ Chris Hofstaedtler ]
+  * Fix typo in preinst: lib64 -> libx32. Closes: #1077863.
+  [ Helmut Grohne ]
+  * Work around /lib64 link created by systemd-nspawn. Closes: #1077866.
+  [ Santiago Vila ]
+  * Add lintian overrides for the directories that have become symlinks.
 
- -- Santiago Vila <sanvila@debian.org>  Thu, 31 Oct 2024 12:04:00 +0100
+ -- Santiago Vila <sanvila@debian.org>  Sun, 04 Aug 2024 23:30:00 +0200
 
-base-files (12.4+deb12u7) bookworm; urgency=medium
+base-files (13.4) unstable; urgency=medium
 
-  * Change /etc/debian_version to 12.7, for Debian 12.7 point release.
+  [ Helmut Grohne ]
+  * Tighten the merged-/usr preinst check. Closes: #1076491.
+  [ Santiago Vila ]
+  * Raise Standards-Version to 4.7.0.
 
- -- Santiago Vila <sanvila@debian.org>  Wed, 14 Aug 2024 18:10:00 +0200
+ -- Santiago Vila <sanvila@debian.org>  Thu, 01 Aug 2024 12:30:00 +0200
 
-base-files (12.4+deb12u6) bookworm; urgency=medium
+base-files (13.3) unstable; urgency=medium
 
-  * Change /etc/debian_version to 12.6, for Debian 12.6 point release.
+  [ Helmut Grohne ]
+  * DEP17: Install /usr-merge aliasing symlinks. Closes: #1064459.
 
- -- Santiago Vila <sanvila@debian.org>  Fri, 29 Mar 2024 18:20:00 +0100
+ -- Santiago Vila <sanvila@debian.org>  Thu, 06 Jun 2024 00:35:00 +0200
 
-base-files (12.4+deb12u5) bookworm; urgency=medium
+base-files (13.2) unstable; urgency=medium
 
-  * Change /etc/debian_version to 12.5, for Debian 12.5 point release.
+  * Document that /etc/profile is not a conffile anymore. Closes: #868095.
+  * Use a regexp to source files in /etc/profile.d. The behaviour should now be
+    well defined and consistent. Closes: #885414, #1069279.
+  * Add NEWS.Debian entry for the above.
+  * Document that the default umask is defined in /etc/login.defs. Closes: #983606.
+  * Add #DEBHELPER# token to postinst to make lintian happy.
+  * Make binary package to be git-reproducible.
 
- -- Santiago Vila <sanvila@debian.org>  Sun, 28 Jan 2024 22:20:00 +0100
+ -- Santiago Vila <sanvila@debian.org>  Fri, 03 May 2024 18:15:00 +0200
 
-base-files (12.4+deb12u4) bookworm; urgency=medium
+base-files (13.1) unstable; urgency=medium
 
-  * Change /etc/debian_version to 12.4, for Debian 12.4 point release.
+  * Rename postinst.in to postinst. Use dh_installdeb token feature instead.
+  * Add /usr/local/libexec. Closes: #994220.
+  * Machine-readable copyright file. Closes: #1020828.
+  * Add a debian/gbp.conf file.
 
- -- Adam D Barratt <adam@adam-barratt.org.uk>  Sat, 09 Dec 2023 21:08:29 +0000
+ -- Santiago Vila <sanvila@debian.org>  Wed, 17 Apr 2024 12:45:00 +0200
 
-base-files (12.4+deb12u3) bookworm; urgency=medium
+base-files (13) unstable; urgency=medium
 
-  * Change /etc/debian_version to 12.3, for Debian 12.3 point release.
+  * Change issue, issue.net, debian_version and os-release
+    to read "trixie/sid".
+  * Change VERSION_CODENAME in os-release to read "trixie".
+  * Drop VERSION and VERSION_ID from os-release.
 
- -- Santiago Vila <sanvila@debian.org>  Sat, 02 Dec 2023 23:34:00 +0100
-
-base-files (12.4+deb12u2) bookworm; urgency=medium
-
-  * Change /etc/debian_version to 12.2, for Debian 12.2 point release.
-
- -- Santiago Vila <sanvila@debian.org>  Fri, 29 Sep 2023 22:04:00 +0200
-
-base-files (12.4+deb12u1) bookworm; urgency=medium
-
-  * Change /etc/debian_version to 12.1, for Debian 12.1 point release.
-
- -- Santiago Vila <sanvila@debian.org>  Fri, 14 Jul 2023 18:00:00 +0200
+ -- Santiago Vila <sanvila@debian.org>  Sun, 11 Jun 2023 17:00:00 +0200
 
 base-files (12.4) unstable; urgency=medium
 

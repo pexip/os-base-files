@@ -1,3 +1,9 @@
+base-files (12.4+deb12u10+pexip24u1) pexip; urgency=medium
+
+  * New upstream release
+
+ -- Huw Jones <huw@pexip.com>  Mon, 17 Mar 2025 11:54:59 +0000
+
 base-files (12.4+deb12u10) bookworm; urgency=medium
 
   * Change /etc/debian_version to 12.10, for Debian 12.10 point release.

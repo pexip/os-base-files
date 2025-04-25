@@ -3,13 +3,13 @@ Section: admin
 Priority: required
 Maintainer: Pexip AS <packaging@pexip.com>
 XSBC-Pexip-Original-Maintainer: Santiago Vila <sanvila@debian.org>
-Standards-Version: 4.6.2
+Standards-Version: 4.7.2
 Build-Depends: debhelper-compat (= 13), debhelper (>= 13.10~)
 Rules-Requires-Root: binary-targets
 XS-Pexip-Upstream: http://deb.debian.org/debian/ trixie
 
 Package: base-files
-Provides: base
+Provides: base, usr-is-merged
 Architecture: any
 Pre-Depends: awk
 Depends: ${misc:Depends}

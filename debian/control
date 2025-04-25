@@ -6,7 +6,7 @@ XSBC-Pexip-Original-Maintainer: Santiago Vila <sanvila@debian.org>
 Standards-Version: 4.6.2
 Build-Depends: debhelper-compat (= 13), debhelper (>= 13.10~)
 Rules-Requires-Root: binary-targets
-XS-Pexip-Upstream: http://deb.debian.org/debian/ bookworm
+XS-Pexip-Upstream: http://deb.debian.org/debian/ trixie
 
 Package: base-files
 Provides: base

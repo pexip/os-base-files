@@ -1,3 +1,24 @@
+base-files (13.8) unstable; urgency=medium
+
+  * Changes for trixie as stable:
+  - Use 13 as version in /etc/issue and /etc/issue.net.
+  - Use 13.0 as version in /etc/debian_version.
+  - Update PRETTY_NAME in os-release, now 13 (trixie).
+  - Add VERSION_ID and VERSION.
+  - Add DEBIAN_VERSION_FULL with the same contents as /etc/debian_version.
+    This is only expected to exist on stable releases. Closes: #931197.
+    Note that this does not change the fundamental fact that "all point
+    releases of trixie are Debian 13". This is just a convenience for
+    tools like ansible who already parse both debian_version and os-release
+    so that in the long term they can parse os-release only.
+  - Update README (trixie -> forky and use 13.x for example version).
+  * Refresh some licenses from ftp.gnu.org. Closes: #1103289.
+  * Set Rules-Requires-Root to no.
+  * Drop obsolete debian/2775-dirs.
+  * Add Vcs-Git and Vcs-Browser fields.
+
+ -- Santiago Vila <sanvila@debian.org>  Mon, 12 May 2025 21:25:00 +0200
+
 base-files (13.7) unstable; urgency=medium
 
   * Make /var/local to be root:root and 755 by default on new installs.

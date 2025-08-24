@@ -1,3 +1,9 @@
+base-files (13.8+deb13u1) trixie; urgency=medium
+
+  * Update debian_version and os-release for Debian 13.1 point release.
+
+ -- Santiago Vila <sanvila@debian.org>  Sun, 24 Aug 2025 18:20:00 +0200
+
 base-files (13.8) unstable; urgency=medium
 
   * Changes for trixie as stable:

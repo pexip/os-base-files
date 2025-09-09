@@ -1,3 +1,15 @@
+base-files (12.4+deb12u12+pexip24u1) pexip; urgency=medium
+
+  * New upstream release
+
+ -- Steve McIntyre <steve.mcintyre@pexip.com>  Tue, 09 Sep 2025 15:20:01 +0100
+
+base-files (12.4+deb12u12) bookworm; urgency=medium
+
+  * Change /etc/debian_version to 12.12, for Debian 12.12 point release.
+
+ -- Santiago Vila <sanvila@debian.org>  Sun, 24 Aug 2025 18:05:00 +0200
+
 base-files (12.4+deb12u11+pexip24u1) pexip; urgency=medium
 
   * New upstream release

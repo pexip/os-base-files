@@ -1,3 +1,9 @@
+base-files (13.8+deb13u5) trixie; urgency=medium
+
+  * Update debian_version and os-release for Debian 13.5 point release.
+
+ -- Santiago Vila <sanvila@debian.org>  Fri, 08 May 2026 18:10:00 +0200
+
 base-files (13.8+deb13u4+pexip25u1) pexip-trixie; urgency=medium
 
   * New upstream release.

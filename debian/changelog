@@ -1,3 +1,15 @@
+base-files (13.8+deb13u6+pexip25u1) pexip-trixie; urgency=medium
+
+  * New upstream release.
+
+ -- Steve McIntyre <steve.mcintyre@pexip.com>  Mon, 13 Jul 2026 15:58:29 +0100
+
+base-files (13.8+deb13u6) trixie; urgency=medium
+
+  * Update debian_version and os-release for Debian 13.6 point release.
+
+ -- Santiago Vila <sanvila@debian.org>  Sat, 04 Jul 2026 11:05:00 +0200
+
 base-files (13.8+deb13u5+pexip25u1) pexip-trixie; urgency=medium
 
   * New upstream release.
